@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import Header from './Components/Header'
 import Sidebar from "./Components/Sidebar";
 import ru_RU from 'antd/lib/locale/ru_RU';

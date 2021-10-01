@@ -73,12 +73,27 @@ for (let i = 0; i < 100; i++) {
 }
 
 export default class Content extends Component {
+    constructor() {
+        super();
+        this.state = {
+            search: '',
+            loading: false,
+            value: '',
+        }
+
+
+
+    }
+
+
 
     render() {
         return (
             <div className='content'>
                 <br/>
+                {/*<Search onSubmit={this.submitHandler} placeholder="Введите название документа..." allowClear onSearch={onSearch}/>*/}
                 <Search onSubmit={this.submitHandler} placeholder="Введите название документа..." allowClear />
+                <br/>
                 <br/>
                 <Table className='table' bordered columns={columns} dataSource={data}/>
             </div>
