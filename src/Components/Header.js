@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {ArrowRightOutlined, UserOutlined, UnorderedListOutlined, CaretDownOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import {Button, Avatar} from 'antd';
-import axios from "axios";
 
 // const {API_KEY} = process.env
 // const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'

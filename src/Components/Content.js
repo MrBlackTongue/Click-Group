@@ -1,12 +1,10 @@
 import React, {Component} from "react";
-import {Space, Table, Input} from 'antd';
+import {Space, Table} from 'antd';
 import {FormOutlined, RetweetOutlined, ArrowUpOutlined, DeleteOutlined} from '@ant-design/icons'
+import SearchPanel from "./SearchPanel";
+
 
 import 'antd/dist/antd.css';
-
-
-const {Search} = Input;
-const onSearch = value => console.log(value); //todo: убрать результат поиска из консоли
 
 
 const columns = [
@@ -50,7 +48,7 @@ const columns = [
         width: 100,
         render: () => (
             <Space>
-                <button className='button-edit'><FormOutlined /></button>
+                <button className='button-edit'><FormOutlined/></button>
                 <button className='button-repeat'><RetweetOutlined/></button>
                 <button className='button-send'><ArrowUpOutlined/></button>
                 <button className='button-delete'><DeleteOutlined/></button>
@@ -73,29 +71,19 @@ for (let i = 0; i < 100; i++) {
 }
 
 export default class Content extends Component {
-    constructor() {
-        super();
-        this.state = {
-            search: '',
-            loading: false,
-            value: '',
-        }
-
-
-
+    state = {
+        bottom: 'bottomCenter',
     }
-
-
 
     render() {
         return (
             <div className='content'>
                 <br/>
-                {/*<Search onSubmit={this.submitHandler} placeholder="Введите название документа..." allowClear onSearch={onSearch}/>*/}
-                <Search onSubmit={this.submitHandler} placeholder="Введите название документа..." allowClear />
+                <SearchPanel/>
                 <br/>
                 <br/>
-                <Table className='table' bordered columns={columns} dataSource={data}/>
+                <Table className='table' bordered columns={columns} dataSource={data}
+                       pagination={{position: [this.state.bottom]}}/>
             </div>
         )
     }

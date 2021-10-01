@@ -23,7 +23,7 @@ export default class Sidebar extends Component {
         return (
             <div className='sidebar'>
                 <br/>
-                <Button type="primary" danger className="button-red">
+                <Button type="primary" danger className="button-red" >
                     <PlusOutlined/>
                     &nbsp; Добавить Нарушение
                 </Button>
