@@ -22,18 +22,6 @@ export default class Sidebar extends Component {
     render() {
         return (
             <div className='sidebar'>
-                <br/>
-                <Button type="primary" danger className="button-red" >
-                    <PlusOutlined/>
-                    &nbsp; Добавить Нарушение
-                </Button>
-
-                <div className='div-br'/>
-                <Button type="primary" danger className="button-orange">
-                    <PlusOutlined/>
-                    &nbsp; Добавить Отклонение
-                </Button>
-
                 <List
                     className='list-aside'
                     size="small"
@@ -62,11 +50,6 @@ export default class Sidebar extends Component {
                 />
 
                 <div className='div-data'><b>Дата</b></div>
-                <Space direction="vertical">
-
-                    <DatePicker onChange={onChange} placeholder='Начало' className='data-picker'/>
-                    <DatePicker onChange={onChange} placeholder='Конец' className='data-picker'/>
-                </Space>
 
                 <div className='checkbox-my-doc'>
                     <Checkbox onChange2={onChange}>Только мои документы</Checkbox>

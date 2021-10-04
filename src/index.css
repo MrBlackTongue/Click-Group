@@ -3,43 +3,52 @@ html * {
 }
 
 .site-page-header {
-  border: 1px solid rgb(235, 237, 240);
-}
-
-.site-page-header {
-  background-color: #1890ff !important;
+  /*border: 1px solid rgb(235, 237, 240);*/
+  /*background-color: #1890ff !important;*/
   color: white !important;
   height: 35px !important;
-  justify-content: space-between !important;
+  /*justify-content: space-between !important;*/
   display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-list {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-weight: bold;
   margin-left: 1rem;
+  margin-top: 30px;
   border-bottom: 1px solid gainsboro;
-  width: 97%;
+  width: 50%;
   margin-bottom: .5rem;
 }
 
-.div-br {
-  border-bottom: 1px solid gainsboro;
-  /*width: 100px;*/
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
+/*.div-br {*/
+/*  border-bottom: 1px solid gainsboro;*/
+/*  !*width: 100px;*!*/
+/*  margin-bottom: 10px;*/
+/*  margin-top: 10px;*/
+/*}*/
 
 .button-orange {
-  background-color: darkorange !important;
-  width: 100%;
-  border-radius: 5px !important;
+  color: orange !important;
+  border-color: orange !important;
+  width: 250px;
+  font-weight: bold !important;
+
 }
 
 .button-red {
-  width: 100%;
-  border-radius: 5px !important;
+  width: 250px;
+  font-weight: bold !important;
+  margin-right: 10px;
+}
+
+.bottoms-add {
+  display: flex;
+  margin-bottom: 10px;
 }
 
 .sidebar {
@@ -64,9 +73,18 @@ html * {
 }
 
 .data-picker {
-  width: 250px;
-  margin-top: 10px;
+  width: 160px;
+  margin-right: 10px;
 }
+
+.date {
+  margin-right: 10px;
+}
+
+.ant-picker {
+  border: none !important;
+}
+
 
 .div-data {
   margin-left: 25px;
@@ -94,10 +112,6 @@ html * {
   width: 100%;
 }
 
-.table {
-
-}
-
 .ant-pagination.ant-table-pagination.ant-table-pagination-right {
   text-align: center;
 }
@@ -107,28 +121,22 @@ th {
 }
 
 
-.button-edit, .button-repeat, .button-send, .button-delete {
-  border-radius: 5px;
-  color: white;
-  border: none !important;
-  width: 35px;
-  height: 30px;
-  font-weight: bold !important;
-  /*margin: 0;*/
+.header {
+  height: 140px;
+  padding-top: 25px;
 }
 
-.button-edit {
-  background-color: #14c345;
+.search-panel{
+  width: 60rem !important;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.button-repeat {
- background-color: #e48b0d;
+.UnorderedListOutlined {
+  /*font-size: 30px !important;*/
 }
 
-.button-send {
-  background-color: #4a8cff;
-}
-
-.button-delete {
-  background-color: red;
-}
+/*.svg {*/
+/*  background-image:*/
+/*url("http://www.w3.org/2000/svg");*/
+/*}*/

@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {ArrowRightOutlined, UserOutlined, UnorderedListOutlined, CaretDownOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
-import {Button, Avatar} from 'antd';
+import {Button, Avatar, DatePicker, Space} from 'antd';
+import SearchPanel from "../SearchPanel/SearchPanel";
 
 // const {API_KEY} = process.env
 // const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
@@ -31,18 +32,28 @@ export default class Header extends Component {
         return (
             <div className='header'>
                 <div className="site-page-header">
-                    <Button type="primary"><ArrowRightOutlined/>Система Ввода</Button>
-                    <Button type="primary">
+                    <Button type="primary" className='svg' ghost><ArrowRightOutlined/>Система Ввода</Button>
+                    <div className='search-panel'>
+                        <SearchPanel/>
+                    </div>
+                    <div className='date'>
+                        <Space direction="horizontal">
+                            <DatePicker onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                            <DatePicker onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                        </Space>
+                    </div>
+                    <Button type="primary" ghost>
                         <Avatar size={20} icon={<UserOutlined/>}/>
                         &nbsp; find
                         <CaretDownOutlined/>
                     </Button>
                 </div>
 
-                <div className='header-list'>
-                    <UnorderedListOutlined title="Title"/>
-                    <div>&nbsp; Список документов</div>
-                </div>
+                {/*<div className='header-list'>*/}
+                {/*    <UnorderedListOutlined title="Title" cLassName='UnorderedListOutlined' style={{ fontSize: '30px'}}/>*/}
+                {/*    <div>&nbsp; Список документов</div>*/}
+                {/*</div>*/}
+
             </div>
         )
     }

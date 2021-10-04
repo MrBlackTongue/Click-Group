@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import {Space, Table} from 'antd';
-import {FormOutlined, RetweetOutlined, ArrowUpOutlined, DeleteOutlined} from '@ant-design/icons'
-import SearchPanel from "./SearchPanel";
+import {Space, Table, Button} from 'antd';
+import {FormOutlined, RetweetOutlined, ArrowUpOutlined, DeleteOutlined, PlusOutlined} from '@ant-design/icons'
 
 
 import 'antd/dist/antd.css';
@@ -48,10 +47,10 @@ const columns = [
         width: 100,
         render: () => (
             <Space>
-                <button className='button-edit'><FormOutlined/></button>
-                <button className='button-repeat'><RetweetOutlined/></button>
-                <button className='button-send'><ArrowUpOutlined/></button>
-                <button className='button-delete'><DeleteOutlined/></button>
+                <Button type="primary" size="small" shape="circle" ghost><FormOutlined/></Button>
+                <Button type="primary" size="small" shape="circle" ghost><RetweetOutlined/></Button>
+                <Button type="primary" size="small" shape="circle" ghost><ArrowUpOutlined/></Button>
+                <Button type="primary" size="small" shape="circle" ghost><DeleteOutlined/></Button>
             </Space>
         )
 
@@ -78,10 +77,19 @@ export default class Content extends Component {
     render() {
         return (
             <div className='content'>
-                <br/>
-                <SearchPanel/>
-                <br/>
-                <br/>
+
+                <div className='bottoms-add'>
+                    <Button type="primary" danger className="button-red" ghost size="large">
+                        <PlusOutlined/>
+                        &nbsp; Добавить Нарушение
+                    </Button>
+                    {/*<div className='div-br'/>*/}
+                    <Button type="primary" danger className="button-orange" ghost size="large">
+                        <PlusOutlined/>
+                        &nbsp; Добавить Отклонение
+                    </Button>
+                </div>
+
                 <Table className='table' bordered columns={columns} dataSource={data}
                        pagination={{position: [this.state.bottom]}}/>
             </div>
