@@ -81,12 +81,12 @@ export default class Content extends Component {
                 <div className='bottoms-add'>
                     <Button type="primary" danger className="button-red" ghost size="large">
                         <PlusOutlined/>
-                        &nbsp; Добавить Нарушение
+                        &nbsp;Добавить Нарушение
                     </Button>
                     {/*<div className='div-br'/>*/}
                     <Button type="primary" danger className="button-orange" ghost size="large">
                         <PlusOutlined/>
-                        &nbsp; Добавить Отклонение
+                        &nbsp;Добавить Отклонение
                     </Button>
                 </div>
 

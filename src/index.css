@@ -53,6 +53,8 @@ html * {
 
 .sidebar {
   width: 250px;
+  border-right: steelblue 2px solid;
+  margin-top: 10px;
 }
 
 .a-style {
@@ -108,8 +110,9 @@ html * {
 }
 
 .content {
-  margin: 0 10px;
+  margin: 10px;
   width: 100%;
+
 }
 
 .ant-pagination.ant-table-pagination.ant-table-pagination-right {
@@ -124,6 +127,7 @@ th {
 .header {
   height: 140px;
   padding-top: 25px;
+  border-bottom: #cbd5dc 1px solid;
 }
 
 .search-panel{
