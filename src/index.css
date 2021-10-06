@@ -52,7 +52,7 @@ html * {
 }
 
 .sidebar {
-  width: 250px;
+  width: 300px;
   border-right: steelblue 2px solid;
   margin-top: 10px;
 }
@@ -136,9 +136,18 @@ th {
   margin-right: 10px;
 }
 
-.UnorderedListOutlined {
-  /*font-size: 30px !important;*/
+.filters {
+  font-size: 20px;
+  max-height: 30px;
+  font-weight: 600;
+  margin-left: 10px;
 }
+
+.ant-collapse-header {
+  height: 30px;
+  padding: 0 16px !important;
+}
+
 
 /*.svg {*/
 /*  background-image:*/

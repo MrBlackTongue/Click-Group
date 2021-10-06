@@ -90,6 +90,20 @@ export default class TreeSidebar extends Component {
         return {...obj, ...newKey};
     };
 
+    updateKeyPlants = () => {
+        this.state.plants.forEach((el) => {
+            this.addTitleObj(this.state.plants, (el['key'] = el.id))
+        });
+        this.state.plants.map((el) => (el['key'] = el.id))
+    }
+
+    updateKeyTasks = () => {
+        this.state.tasks.forEach((el) => {
+            this.addTitleObj(this.state.tasks, (el['key'] = el.id))
+        });
+        this.state.tasks.map((el) => (el['key'] = el.id))
+    }
+
     // updatePlants = () => {
     //     this.state.plants.forEach((el) => {
     //         this.addTitleObj(this.state.plants, (el['title'] = el.name));
@@ -104,80 +118,26 @@ export default class TreeSidebar extends Component {
     // };
 
 
-    updateKeysPlants = () => {
-        this.state.plants.forEach((el) => {
-            this.addTitleObj(this.state.plants, (el['key'] = el.id))
-        });
-        this.state.plants.map((el) => (el['key'] = el.id))
-    }
-
-    updateKeyTasks = () => {
-        this.state.tasks.forEach((el) => {
-            this.addTitleObj(this.state.tasks, (el['key'] = el.id))
-        });
-        this.state.tasks.map((el) => (el['key'] = el.id))
-    }
-
-    // updateTreeData(list, key, children) {
-    //     return list.map(node => {
-    //         if (node.key === key) {
-    //             return {
-    //                 ...node,
-    //                 children
-    //             }
-    //         }
-    //         if (node.children) {
-    //             return {
-    //                 ...node,
-    //                 children: this.updateTreeData(node.children, key, children)
-    //             }
-    //         }
-    //         return node
-    //     })
-    // }
-
-
-    // renderTasks(arr) {
-    //     return arr.map(({id, name, count}) => {
-    //
-    //         return (
-    //             <li key={id}>
-    //                 { name }  <button>{count}</button>
-    //             </li>
-    //         )
-    //     })
-    // }
-
-
     render() {
 
-        const {tasks} = this.state
-        const {plants} = this.state
-
-        // const task = this.renderTasks(tasks)
         console.log('tasks', this.state.tasks)
         console.log('plants', this.state.plants)
 
-        console.log('treeData', this.state.treeData)
-
         // this.updatePlants()
         // this.updateTasks()
+        this.updateKeyPlants()
         this.updateKeyTasks()
-        this.updateKeysPlants()
         return (
             <div className='sidebar'>
-
-                <Collapse ghost
-                          expandIcon={({isActive}) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}>
+                <div><h4 className='filters'>Фильтры:</h4></div>
+                <Collapse ghost expandIcon={({isActive}) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}>
                     <Panel header="Станции" key="1">
                         <Tree
                             checkable
                             onSelect={onSelect}
                             onCheck={onCheck}
                             treeData={this.state.plants}
-
                         />
-
                     </Panel>
                     <Panel header="Задачи" key="2">
                         <Tree
@@ -188,23 +148,6 @@ export default class TreeSidebar extends Component {
                         />
                     </Panel>
                 </Collapse>
-
-                {/*<Tree*/}
-                {/*    checkable*/}
-                {/*    defaultExpandedKeys={['0-0-0', '0-0-1']}  // ключи развернутого treeNodes по умолчанию*/}
-                {/*    onSelect={onSelect}*/}
-                {/*    onCheck={onCheck}*/}
-                {/*    treeData={this.state.plants}*/}
-                {/*/>*/}
-                {/*<Tree*/}
-                {/*    checkable*/}
-                {/*    defaultExpandedKeys={['0-0-0', '0-0-1']}  // ключи развернутого treeNodes по умолчанию*/}
-                {/*    onSelect={onSelect}*/}
-                {/*    onCheck={onCheck}*/}
-                {/*    treeData={this.state.tasks}*/}
-                {/*/>*/}
-                {/*{plants}*/}
-                {/*{task}*/}
             </div>
 
         );

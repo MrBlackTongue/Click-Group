@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 
 const columns = [
     {
-        title: '',
+        title: '#',
         // width: 100,
         dataIndex: 'number',
         key: '0',
