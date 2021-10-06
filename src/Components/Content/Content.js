@@ -5,13 +5,6 @@ import 'antd/dist/antd.css';
 import axios from "axios";
 
 
-// const getRandomuserParams = params => ({
-//     results: params.pagination.pageSize,
-//     page: params.pagination.current,
-//     ...params,
-// });
-
-
 export default class Content extends Component {
 
     constructor(props) {
@@ -19,10 +12,6 @@ export default class Content extends Component {
         this.state = {
             bottom: 'bottomCenter',
             data: [],
-            pagination: {
-                current: 1,
-                pageSize: 10,
-            },
             loading: false,
         }
 
@@ -37,61 +26,10 @@ export default class Content extends Component {
         })
     }
 
+
     componentDidMount() {
         this.getResponseData()
     }
-
-    // componentDidMount() {
-    //     const { pagination } = this.state;
-    //     this.fetch({ pagination });
-    // }
-
-    // handleTableChange = (pagination, filters, sorter) => {
-    //     this.fetch({
-    //         sortField: sorter.field,
-    //         sortOrder: sorter.order,
-    //         pagination,
-    //         ...filters,
-    //     });
-    // };
-
-    // fetch = (params = {}) => {
-    //     this.setState({ loading: true });
-    //     reqwest({
-    //         url: 'http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=10',
-    //         method: 'get',
-    //         type: 'json',
-    //         data: getRandomuserParams(params),
-    //     }).then(data => {
-    //         console.log('data', data);
-    //         this.setState({
-    //             loading: false,
-    //             data: data.rows,
-    //             pagination: {
-    //                 ...params.pagination,
-    //                 total: 200,
-    //                 // 200 is mock data, you should read it from server
-    //                 // total: data.totalCount,
-    //             },
-    //         });
-    //     });
-    // };
-
-
-
-    // componentDidMount() {
-    //     fetch('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=10')
-    //         .then(response => response.json())
-    //         // .then(response => response.map((item) => {
-    //         //     item.title = item.name + ' (' + item.count + ')';
-    //         //     return item
-    //         // }))
-    //         .then(response => {
-    //             this.setState({
-    //                 data: response.rows
-    //             })
-    //         })
-    // }
 
 
     render() {
@@ -141,7 +79,7 @@ export default class Content extends Component {
             },
         ];
 
-        const { data, pagination, loading} = this.state
+        const { data, loading} = this.state
 
         console.log('response', this.state.data)
         return (
@@ -160,7 +98,6 @@ export default class Content extends Component {
 
                 <Table className='table' bordered
                        columns={columns}
-                       // rowKey={record => record.login.uuid}
                        dataSource={data}
                        loading={loading}
                        // onChange={this.handleTableChange}
