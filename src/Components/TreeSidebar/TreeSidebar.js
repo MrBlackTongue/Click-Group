@@ -120,8 +120,8 @@ export default class TreeSidebar extends Component {
 
     render() {
 
-        console.log('tasks', this.state.tasks)
-        console.log('plants', this.state.plants)
+        // console.log('tasks', this.state.tasks)
+        // console.log('plants', this.state.plants)
 
         // this.updatePlants()
         // this.updateTasks()
@@ -129,25 +129,27 @@ export default class TreeSidebar extends Component {
         this.updateKeyTasks()
         return (
             <div className='sidebar'>
-                <div><h4 className='filters'>Фильтры:</h4></div>
-                <Collapse ghost expandIcon={({isActive}) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}>
-                    <Panel header="Станции" key="1">
-                        <Tree
-                            checkable
-                            onSelect={onSelect}
-                            onCheck={onCheck}
-                            treeData={this.state.plants}
-                        />
-                    </Panel>
-                    <Panel header="Задачи" key="2">
-                        <Tree
-                            checkable
-                            onSelect={onSelect}
-                            onCheck={onCheck}
-                            treeData={this.state.tasks}
-                        />
-                    </Panel>
-                </Collapse>
+                <div className='treeSidebar'>
+                    <div><h4 className='filters'>Фильтры:</h4></div>
+                    <Collapse ghost expandIcon={({isActive}) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}>
+                        <Panel header="Станции" key="1">
+                            <Tree
+                                checkable
+                                onSelect={onSelect}
+                                onCheck={onCheck}
+                                treeData={this.state.plants}
+                            />
+                        </Panel>
+                        <Panel header="Задачи" key="2">
+                            <Tree
+                                checkable
+                                onSelect={onSelect}
+                                onCheck={onCheck}
+                                treeData={this.state.tasks}
+                            />
+                        </Panel>
+                    </Collapse>
+                </div>
             </div>
 
         );

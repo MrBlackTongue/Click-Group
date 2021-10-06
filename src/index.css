@@ -53,8 +53,12 @@ html * {
 
 .sidebar {
   width: 300px;
-  border-right: steelblue 2px solid;
+  box-shadow: 10px -4px 5px -4px rgba(65,144,255, 0.2);
+}
+
+.treeSidebar {
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 .a-style {
@@ -110,7 +114,7 @@ html * {
 }
 
 .content {
-  margin: 10px;
+  margin: 10px 20px;
   width: 100%;
 
 }
