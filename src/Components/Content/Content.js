@@ -11,24 +11,27 @@ export default class Content extends Component {
         super(props);
         this.state = {
             bottom: 'bottomCenter',
-            data: [],
+            data: this.props.dataParentToChild,
             loading: false,
         }
 
     }
 
-    async getResponseData() {
-        const res = await axios.get('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500')
-        // console.log('res.data', res.data)
-        this.setState({
-            loading: false,
-            data: res.data.rows
-        })
-    }
+    // async getResponseData() {
+    //     const res = await axios.get('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500')
+    //     // console.log('res.data', res.data)
+    //     this.setState({
+    //         loading: false,
+    //         data: res.data.rows
+    //     })
+    //     console.log('dataTable', this.state.data)
+    // }
+
+
 
 
     componentDidMount() {
-        this.getResponseData()
+        // this.getResponseData()
     }
 
 
@@ -44,7 +47,7 @@ export default class Content extends Component {
             },
             {
                 title: 'Название',
-                width: 600,
+                width: 700,
                 dataIndex: 'name',
                 // fixed: 'left',
             },
@@ -81,7 +84,7 @@ export default class Content extends Component {
 
         const { data, loading} = this.state
 
-        // console.log('response', this.state.data)
+        console.log('dataContent', this.state.data)
         return (
             <div className='content'>
                 <div className='bottoms-add'>
@@ -98,7 +101,7 @@ export default class Content extends Component {
 
                 <Table className='table' bordered
                        columns={columns}
-                       dataSource={data}
+                       dataSource={this.props.dataParentToChild}
                        loading={loading}
                        // onChange={this.handleTableChange}
                        pagination={{position: [this.state.bottom]}}/>

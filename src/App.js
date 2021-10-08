@@ -13,22 +13,20 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            name: '',
-            onCheck: '',
+            data: [],
         }
 
     }
 
     updateData = (value) => {
         this.setState({
-            name: value
+            data: value
         })
-        console.log('value', value);
-
-
+        console.log('dataParent', value);
     }
 
     render() {
+        const {data} = this.state
         return (
             <ConfigProvider locale={ru_RU}>
                 <div className="App">
@@ -36,7 +34,8 @@ export default class App extends React.Component {
                     <div className='app-context-div'>
                         <TreeSidebar updateData={this.updateData}/>
                         {/*<Sidebar/>*/}
-                        <Content/>
+                        <Content dataParentToChild={data}/>
+                        {/*<Content updateData={this.state.data}/>*/}
                     </div>
                 </div>
             </ConfigProvider>

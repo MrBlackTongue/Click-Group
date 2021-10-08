@@ -97,33 +97,33 @@ export default class TreeSidebar extends Component {
                     tasks: item
                 })
             })
-
     }
 
 
-    onCheck = (checkedKeys) => {
+    onCheck = async (checkedKeys) => {
         let params = []
         for (let i = 0; i < checkedKeys.length; i++) {
             params.push('plants=' + checkedKeys[i] + '&')
         }
 
-        console.log('checkedKeys', checkedKeys)
+        // console.log('checkedKeys', checkedKeys)
         params = params.join('')
-        console.log('params', params);
+        // console.log('params', params);
 
 
-        this.fetchData(params)
+       await this.fetchData(params)
 
     };
 
     fetchData = (params) => {
         fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${params}date1=&date2=&pageNum=1&pageSize=1500`)
             .then(response => response.json())
-            .then(response => {
-                this.setState({
-                    data: response.row
+            .then(async (response) => {
+                await this.setState({
+                    data: response.rows
                 })
-                console.log('data', response.rows)
+                console.log('dataTree', response.rows)
+                this.props.updateData(this.state.data)
             })
     }
 
@@ -203,6 +203,8 @@ export default class TreeSidebar extends Component {
                                 checkable
                                 // onSelect={onSelect}
                                 onCheck={this.onCheck}
+
+                                // onCheck={this.onCheck}
                                 treeData={this.state.plants}
                             />
                         </Panel>
@@ -222,5 +224,3 @@ export default class TreeSidebar extends Component {
             ;
     }
 }
-
-
