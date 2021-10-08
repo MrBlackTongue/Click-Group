@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {Tree, Collapse} from 'antd';
-import {CaretRightOutlined} from '@ant-design/icons'
+import {Tree, Collapse, Button} from 'antd';
+import {CaretRightOutlined, PlusOutlined} from '@ant-design/icons'
 
 import Service from "../../services/service";
 
@@ -100,23 +100,25 @@ export default class TreeSidebar extends Component {
     }
 
 
-    onCheck = async (checkedKeys) => {
+    onCheck = (checkedKeys) => {
         let params = []
         for (let i = 0; i < checkedKeys.length; i++) {
             params.push('plants=' + checkedKeys[i] + '&')
         }
 
         // console.log('checkedKeys', checkedKeys)
-        params = params.join('')
-        // console.log('params', params);
+        this.setState({
+            params: params.join('')
+        })
+        console.log('params', this.state.params);
 
 
-       await this.fetchData(params)
+       // await this.fetchData(params)
 
     };
 
-    fetchData = (params) => {
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${params}date1=&date2=&pageNum=1&pageSize=1500`)
+    fetchData = () => {
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.params}date1=&date2=&pageNum=1&pageSize=1500`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
@@ -217,6 +219,9 @@ export default class TreeSidebar extends Component {
                             />
                         </Panel>
                     </Collapse>
+                    <Button type="primary" className='button-ghost' ghost size='default' onClick={this.fetchData}>
+                        Отфильтровать
+                    </Button>
                 </div>
             </div>
 

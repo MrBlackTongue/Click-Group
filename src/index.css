@@ -25,6 +25,11 @@ html * {
   margin-bottom: .5rem;
 }
 
+/*.button-ghost {*/
+/*  position: relative;*/
+/*  text-align: center;*/
+/*}*/
+
 /*.div-br {*/
 /*  border-bottom: 1px solid gainsboro;*/
 /*  !*width: 100px;*!*/
@@ -57,6 +62,7 @@ html * {
 }
 
 .treeSidebar {
+  position: relative;
   margin-top: 10px;
   margin-left: 10px;
 }
