@@ -49,7 +49,7 @@ export default class SearchPanel extends Component {
         return (
             <div className='search'>
                 {/*<Search onSubmit={this.submitHandler} placeholder="Введите название документа..." allowClear onSearch={onSearch}/>*/}
-                <Search searchValue={this.state.value} onSearch={e => this.onChangeHandler(e)} placeholder="Введите название документа..." allowClear size='large'/>
+                <Search onChecked={this.state.value} onSearch={e => this.onChangeHandler(e)} placeholder="Введите название документа..." allowClear size='large'/>
                 {this.renderResults}
             </div>
         )

@@ -19,7 +19,7 @@ export default class Content extends Component {
 
     async getResponseData() {
         const res = await axios.get('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500')
-        console.log('res.data', res.data)
+        // console.log('res.data', res.data)
         this.setState({
             loading: false,
             data: res.data.rows
@@ -81,7 +81,7 @@ export default class Content extends Component {
 
         const { data, loading} = this.state
 
-        console.log('response', this.state.data)
+        // console.log('response', this.state.data)
         return (
             <div className='content'>
                 <div className='bottoms-add'>
