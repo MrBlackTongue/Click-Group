@@ -98,16 +98,8 @@ export default class TreeSidebar extends Component {
                 })
             })
 
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.params}date1=&date2=&pageNum=1&pageSize=1500`)
-            .then(response => response.json())
-            .then(response => {
-                this.setState({
-                    data: response.row
-                })
-                console.log('data', response.rows)
-            })
-
     }
+
 
     onCheck = (checkedKeys) => {
         let params = []
@@ -116,15 +108,24 @@ export default class TreeSidebar extends Component {
         }
 
         console.log('checkedKeys', checkedKeys)
-        console.log('params', params.join(''));
-        return this.setState( {
-            params: params.join('')
-        })
+        params = params.join('')
+        console.log('params', params);
 
 
+        this.fetchData(params)
 
     };
 
+    fetchData = (params) => {
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${params}date1=&date2=&pageNum=1&pageSize=1500`)
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    data: response.row
+                })
+                console.log('data', response.rows)
+            })
+    }
 
 
     addTitleObj = (obj, newKey) => {
