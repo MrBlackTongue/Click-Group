@@ -24,17 +24,17 @@ const {Panel} = Collapse;
 //     console.log('selected', selectedKeys, info);
 // };
 
-// const onCheck = (checkedKeys, info) => {
-//     console.log('onCheck', checkedKeys, info);
+// const onCheckPlants = (checkedKeys, info) => {
+//     console.log('onCheckPlants', checkedKeys, info);
 // };
 
-// const onCheck = (checkedKeys) => {
-//     let params = []
+// const onCheckPlants = (checkedKeys) => {
+//     let plantsFilter = []
 //     for (let i = 0; i < checkedKeys.length; i++) {
-//         params.push('plants=' + checkedKeys[i] + '&')
+//         plantsFilter.push('plants=' + checkedKeys[i] + '&')
 //     }
-//     console.log('params', params);
-//     return params.join('')
+//     console.log('plantsFilter', plantsFilter);
+//     return plantsFilter.join('')
 //
 // };
 
@@ -44,7 +44,8 @@ export default class TreeSidebar extends Component {
         super(props);
 
         this.state = {
-            params: '',
+            plantsFilter: '',
+            tasksFilter: '',
             data: [],
             checkedKeys: [],
             onCheck: [],
@@ -100,25 +101,34 @@ export default class TreeSidebar extends Component {
     }
 
 
-    onCheck = (checkedKeys) => {
-        let params = []
+    onCheckPlants = (checkedKeys) => {
+        let plantsFilter = []
         for (let i = 0; i < checkedKeys.length; i++) {
-            params.push('plants=' + checkedKeys[i] + '&')
+            plantsFilter.push('plants=' + checkedKeys[i] + '&')
         }
-
         // console.log('checkedKeys', checkedKeys)
         this.setState({
-            params: params.join('')
+            plantsFilter: plantsFilter.join('')
         })
-        console.log('params', this.state.params);
+        console.log('plantsFilter', this.state.plantsFilter);
+        // await this.fetchData(plantsFilter)
+    };
 
-
-       // await this.fetchData(params)
-
+    onCheckTasks = (checkedKeys) => {
+        let tasksFilter = []
+        for (let i = 0; i < checkedKeys.length; i++) {
+            tasksFilter.push('tasks=' + checkedKeys[i] + '&')
+        }
+        // console.log('checkedKeys', checkedKeys)
+        this.setState({
+            plantsFilter: tasksFilter.join('')
+        })
+        console.log('tasksFilter', this.state.tasksFilter);
+        // await this.fetchData(plantsFilter)
     };
 
     fetchData = () => {
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.params}date1=&date2=&pageNum=1&pageSize=1500`)
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.plantsFilter}${this.state.tasksFilter}date1=&date2=&pageNum=1&pageSize=1500`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
@@ -164,20 +174,6 @@ export default class TreeSidebar extends Component {
 
     render() {
 
-        // const updateData = (e) => {
-        //
-        //      e.preventDefault();
-        //      fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.checketPlants}plants=7&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500$/`, {
-        //          method: "GET",
-        //
-        //      }).then(response => response.json())
-        //     console.log('response', this.response)
-        //      // .then(data => {
-        //      //     console.log('Data from response: ', data);
-        //      //     this.setState({forecasts: [...this.state.forecasts, data]})
-        //      // });
-        //  }
-
 
         // console.log('tasks', this.state.tasks)
         // console.log('plants', this.state.plants)
@@ -194,19 +190,14 @@ export default class TreeSidebar extends Component {
                 <div className='treeSidebar'>
                     <div><h4 className='filters'>Фильтры:</h4></div>
                     <Collapse ghost expandIcon={
-                        ({
-                             isActive
-                         }
-                        ) =>
+                        ({isActive}) =>
                             <CaretRightOutlined rotate={isActive ? 90 : 0}/>
                     }>
                         <Panel header="Станции" key="1">
                             <Tree
                                 checkable
                                 // onSelect={onSelect}
-                                onCheck={this.onCheck}
-
-                                // onCheck={this.onCheck}
+                                onCheck={this.onCheckPlants}
                                 treeData={this.state.plants}
                             />
                         </Panel>
@@ -214,7 +205,7 @@ export default class TreeSidebar extends Component {
                             <Tree
                                 checkable
                                 // onSelect={onSelect}
-                                onCheck={this.onCheck}
+                                onCheck={this.onCheckTasks}
                                 treeData={this.state.tasks}
                             />
                         </Panel>

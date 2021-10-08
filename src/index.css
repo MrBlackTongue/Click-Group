@@ -25,10 +25,11 @@ html * {
   margin-bottom: .5rem;
 }
 
-/*.button-ghost {*/
-/*  position: relative;*/
-/*  text-align: center;*/
-/*}*/
+.button-ghost {
+  position: relative;
+  left: 15%;
+  margin-top: 10px;
+}
 
 /*.div-br {*/
 /*  border-bottom: 1px solid gainsboro;*/
