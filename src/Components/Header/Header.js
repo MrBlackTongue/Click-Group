@@ -1,31 +1,26 @@
 import React, {Component} from "react";
-import {ArrowRightOutlined, UserOutlined, UnorderedListOutlined, CaretDownOutlined} from '@ant-design/icons'
+import {ArrowRightOutlined, UserOutlined, CaretDownOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
 
-// const {API_KEY} = process.env
-// const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
-
 export default class Header extends Component {
-    // constructor(props) {
-    //     super(props);
-    //
-    //     this.state = {
-    //         query: '',
-    //         results: [],
-    //         name: '',
-    //     }
-    // }
-    //
-    // componentDidMount() {
-    //     axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
-    //         .then(({data}) => {
-    //             this.setState({
-    //                 results: data.data
-    //             })
-    //         })
-    // }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: this.props.dataParentToChild,
+        }
+    }
+
+    updateData = (value) => {
+        this.setState({
+            data: value
+        })
+        this.props.updateData(this.state.data)
+
+        // console.log('valueHeader', this.state.data)
+    }
 
 
     render() {
@@ -34,7 +29,7 @@ export default class Header extends Component {
                 <div className="site-page-header">
                     <Button type="primary" className='svg' ghost><ArrowRightOutlined/>Система Ввода</Button>
                     <div className='search-panel'>
-                        <SearchPanel/>
+                        <SearchPanel updateData={this.updateData}/>
                     </div>
                     <div className='date'>
                         <Space direction="horizontal">
@@ -48,11 +43,6 @@ export default class Header extends Component {
                         <CaretDownOutlined/>
                     </Button>
                 </div>
-
-                {/*<div className='header-list'>*/}
-                {/*    <UnorderedListOutlined title="Title" cLassName='UnorderedListOutlined' style={{ fontSize: '30px'}}/>*/}
-                {/*    <div>&nbsp; Список документов</div>*/}
-                {/*</div>*/}
 
             </div>
         )

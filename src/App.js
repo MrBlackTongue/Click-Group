@@ -29,10 +29,9 @@ export default class App extends React.Component {
         return (
             <ConfigProvider locale={ru_RU}>
                 <div className="App">
-                    <Header/>
+                    <Header updateData={this.updateData}/>
                     <div className='app-context-div'>
                         <TreeSidebar updateData={this.updateData}/>
-                        {/*<Sidebar/>*/}
                         <Content dataParentToChild={data}/>
                         {/*<Content updateData={this.state.data}/>*/}
                     </div>

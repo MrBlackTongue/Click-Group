@@ -65,8 +65,7 @@ export default class Content extends Component {
 
         const {loading} = this.state
 
-
-        console.log('dataContent', this.state.data)
+        // console.log('dataContent', this.state.data)
 
         return (
             <div className='content'>

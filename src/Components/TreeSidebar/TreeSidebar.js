@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Tree, Collapse, Button} from 'antd';
-import {CaretRightOutlined, PlusOutlined} from '@ant-design/icons'
-
+import {CaretRightOutlined} from '@ant-design/icons'
 import Service from "../../services/service";
 
 
