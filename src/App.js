@@ -22,7 +22,6 @@ export default class App extends React.Component {
         this.setState({
             data: value
         })
-        console.log('dataParent', value);
     }
 
     render() {

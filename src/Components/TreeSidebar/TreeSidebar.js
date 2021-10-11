@@ -5,39 +5,11 @@ import {CaretRightOutlined, PlusOutlined} from '@ant-design/icons'
 import Service from "../../services/service";
 
 
-// const treeData = [
-//     {
-//         title: 'Станции',
-//         key: '0-0',
-//         children: [ ],
-//     },
-//     {
-//         title: 'Задачи',
-//         key: '0-1',
-//         children: [ ],
-//     },
-// ];
-
 const {Panel} = Collapse;
 
 // const onSelect = (selectedKeys, info) => {
 //     console.log('selected', selectedKeys, info);
 // };
-
-// const onCheckPlants = (checkedKeys, info) => {
-//     console.log('onCheckPlants', checkedKeys, info);
-// };
-
-// const onCheckPlants = (checkedKeys) => {
-//     let plantsFilter = []
-//     for (let i = 0; i < checkedKeys.length; i++) {
-//         plantsFilter.push('plants=' + checkedKeys[i] + '&')
-//     }
-//     console.log('plantsFilter', plantsFilter);
-//     return plantsFilter.join('')
-//
-// };
-
 
 export default class TreeSidebar extends Component {
     constructor(props) {
@@ -98,6 +70,16 @@ export default class TreeSidebar extends Component {
                     tasks: item
                 })
             })
+
+
+        fetch('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500')
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    data: response.rows
+                })
+                this.props.updateData(this.state.data)
+            })
     }
 
 
@@ -110,7 +92,7 @@ export default class TreeSidebar extends Component {
         this.setState({
             plantsFilter: plantsFilter.join('')
         })
-        console.log('plantsFilter', this.state.plantsFilter);
+        // console.log('plantsFilter', this.state.plantsFilter);
         // await this.fetchData(plantsFilter)
     };
 
@@ -123,7 +105,7 @@ export default class TreeSidebar extends Component {
         this.setState({
             plantsFilter: tasksFilter.join('')
         })
-        console.log('tasksFilter', this.state.tasksFilter);
+        // console.log('tasksFilter', this.state.tasksFilter);
         // await this.fetchData(plantsFilter)
     };
 
@@ -134,7 +116,7 @@ export default class TreeSidebar extends Component {
                 await this.setState({
                     data: response.rows
                 })
-                console.log('dataTree', response.rows)
+                // console.log('dataTree', response.rows)
                 this.props.updateData(this.state.data)
             })
     }
@@ -174,14 +156,7 @@ export default class TreeSidebar extends Component {
 
     render() {
 
-
-        // console.log('tasks', this.state.tasks)
-        // console.log('plants', this.state.plants)
-
-        // this.updatePlants()
-        // this.updateTasks()
         this.updateKeyPlants()
-
         this.updateKeyTasks()
 
         return (
