@@ -12,6 +12,7 @@ export default class Content extends Component {
             bottom: 'bottomCenter',
             data: [],
             loading: false,
+            id: '',
         }
 
     }
@@ -86,7 +87,19 @@ export default class Content extends Component {
                        dataSource={this.props.dataParentToChild}
                        loading={loading}
                     // onChange={this.handleTableChange}
-                       pagination={{position: [this.state.bottom]}}/>
+                       pagination={{position: [this.state.bottom]}}
+                onRow={(record, rowIndex) => {
+                    return {
+                        onDoubleClick: event => {
+                            this.setState({
+                                id: record.main_id
+
+                            })
+                            console.log('id', this.state.id)
+                            console.log(record, rowIndex)
+                        }
+                    }
+                }}/>
             </div>
         )
     }

@@ -1,11 +1,9 @@
 import React from "react";
-import Header from './Components/Header/Header'
 import ru_RU from 'antd/lib/locale/ru_RU';
 import {ConfigProvider} from 'antd';
-import Content from "./Components/Content/Content";
-import TreeSidebar from "./Components/TreeSidebar/TreeSidebar";
-
-
+import Home from "./Pages/Home";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import EditMain from "./Pages/EditMain";
 
 export default class App extends React.Component {
 
@@ -25,17 +23,17 @@ export default class App extends React.Component {
     }
 
     render() {
-        const {data} = this.state
+
         return (
             <ConfigProvider locale={ru_RU}>
-                <div className="App">
-                    <Header updateData={this.updateData}/>
-                    <div className='app-context-div'>
-                        <TreeSidebar updateData={this.updateData}/>
-                        <Content dataParentToChild={data}/>
-                        {/*<Content updateData={this.state.data}/>*/}
-                    </div>
-                </div>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path={'/'} exact component={Home}/>
+                        <Route path={`/sh/main/`} component={EditMain}/>
+                    </Switch>
+                </BrowserRouter>
+                {/*<div className="App">*/}
+                {/*</div>*/}
             </ConfigProvider>
         );
     }
