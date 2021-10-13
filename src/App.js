@@ -12,14 +12,17 @@ export default class App extends React.Component {
 
         this.state = {
             data: [],
+            report: [],
+            id: [],
         }
 
     }
 
-    updateData = (value) => {
+    updateId = (value) => {
         this.setState({
-            data: value
+            id: value
         })
+        console.log('idApp', this.state.id)
     }
 
     render() {
@@ -28,8 +31,14 @@ export default class App extends React.Component {
             <ConfigProvider locale={ru_RU}>
                 <BrowserRouter>
                     <Switch>
-                        <Route path={'/'} exact component={Home}/>
-                        <Route path={`/sh/main/`} component={EditMain}/>
+                        <Route path={'/'} exact render={(props) => (
+                            <Home updateId={this.updateId}/>
+                        )}/>
+
+                        <Route path={`/sh/main/`} render={(props) => (
+                            <EditMain id={this.state.id}/>
+                        )}/>
+                        <Route path={`/npp/main/`} component={EditMain}/>
                     </Switch>
                 </BrowserRouter>
                 {/*<div className="App">*/}

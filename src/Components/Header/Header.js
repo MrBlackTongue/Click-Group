@@ -37,7 +37,7 @@ export default class Header extends Component {
                             <DatePicker onChange={''} placeholder='Выберите месяц' className='data-picker'/>
                         </Space>
                     </div>
-                    <Button type="primary" ghost>
+                    <Button type="primary" ghost className='btn-avatar'>
                         <Avatar size={20} icon={<UserOutlined/>}/>
                         &nbsp; find
                         <CaretDownOutlined/>

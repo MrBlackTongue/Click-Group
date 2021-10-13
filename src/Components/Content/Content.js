@@ -12,12 +12,18 @@ export default class Content extends Component {
             bottom: 'bottomCenter',
             data: [],
             loading: false,
-            id: '',
+            report: [],
+            index_text: [],
+            id: [],
         }
 
     }
 
     componentDidMount() {
+
+    }
+
+    onDoubleClick() {
 
     }
 
@@ -35,6 +41,7 @@ export default class Content extends Component {
                 title: 'Название',
                 width: 700,
                 dataIndex: 'name',
+
             },
             {
                 title: 'Дата загрузки',
@@ -60,7 +67,6 @@ export default class Content extends Component {
                         <Button type="primary" size="small" shape="circle" ghost><DeleteOutlined/></Button>
                     </Space>
                 )
-
             },
         ];
 
@@ -81,25 +87,52 @@ export default class Content extends Component {
                         &nbsp;Добавить Отклонение
                     </Button>
                 </div>
-
                 <Table className='table' bordered
                        columns={columns}
                        dataSource={this.props.dataParentToChild}
                        loading={loading}
                     // onChange={this.handleTableChange}
                        pagination={{position: [this.state.bottom]}}
-                onRow={(record, rowIndex) => {
-                    return {
-                        onDoubleClick: event => {
-                            this.setState({
-                                id: record.main_id
+                       onRow={(record) => {
+                           return {
+                               onDoubleClick: event => {
+                                   let name
 
-                            })
-                            console.log('id', this.state.id)
-                            console.log(record, rowIndex)
-                        }
-                    }
-                }}/>
+                                   if (record.filter_tasktype === 'Отклонения (Ввод)') {
+                                       name = 'sh'
+                                   } else {
+                                       name = 'npp'
+                                   }
+
+                                   fetch(`http://185.246.64.43:8080/input/rest/${name}_main/${record.main_id}`)
+
+                                       .then(response => response.json())
+                                       .then(response => {
+                                           this.setState({
+                                               report: response.index,
+                                               index_text: response.index.index_text,
+                                               id: record.main_id
+                                           })
+
+                                           // console.log('record', record)
+
+                                           // console.log('index_text', this.state.index_text)
+                                           console.log('id', this.state.id)
+                                           // console.log('report', this.state.report)
+                                           this.props.updateId(this.state.id)
+
+
+                                       })
+
+
+                                   window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
+
+
+                               }
+                           }
+                       }}
+                />
+
             </div>
         )
     }

@@ -11,14 +11,25 @@ export default class Home extends React.Component {
 
         this.state = {
             data: [],
+            report: [],
+            id: [],
         }
 
     }
 
     updateData = (value) => {
         this.setState({
-            data: value
+            data: value,
         })
+    }
+
+    updateId = (value) => {
+        this.setState({
+            id: value,
+        })
+        console.log('idParent', this.state.id)
+        this.props.updateId(this.state.id)
+
     }
 
     render() {
@@ -28,7 +39,7 @@ export default class Home extends React.Component {
                     <Header updateData={this.updateData}/>
                     <div className='home-context-div'>
                         <TreeSidebar updateData={this.updateData}/>
-                        <Content dataParentToChild={data}/>
+                        <Content dataParentToChild={data} updateId={this.updateId}/>
                     </div>
                 </div>
         );
