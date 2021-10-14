@@ -36,8 +36,9 @@ export default class App extends React.Component {
                         )}/>
 
                         <Route path={`/sh/main/`} render={(props) => (
-                            <EditMain id={this.state.id}/>
+                            <EditMain {...props} id={this.state.id}/>
                         )}/>
+
                         <Route path={`/npp/main/`} component={EditMain}/>
                     </Switch>
                 </BrowserRouter>

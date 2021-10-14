@@ -14,7 +14,7 @@ export default class с extends Component {
     }
 
     render() {
-        console.log('editId', this.state.id)
+        // console.log('editId', this.state.id)
         return (
             <div className='edit-main'>
                 <HeaderEdit/>
