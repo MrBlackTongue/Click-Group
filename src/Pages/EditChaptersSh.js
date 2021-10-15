@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import HeaderEditSh from "../Components/HeaderEditSh/HeaderEditSh";
-import EditReportSh from "../Components/EditReportSh/EditReportSh";
+import EditReportChaptersSh from "../Components/EditReportChaptersSh/EditReportChaptersSh";
 
 
 export default class EditChaptersSh extends Component {
@@ -17,7 +17,7 @@ export default class EditChaptersSh extends Component {
         return (
             <div className='edit-main'>
                 <HeaderEditSh/>
-                <EditReportSh/>
+                <EditReportChaptersSh/>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button, Avatar} from 'antd';
-import {ArrowRightOutlined, CaretDownOutlined, UserOutlined} from '@ant-design/icons'
+import {ArrowRightOutlined, CaretDownOutlined, FileOutlined, UserOutlined} from '@ant-design/icons'
 import {NavLink} from "react-router-dom";
 
 export default class HeaderEditNpp extends Component {
@@ -8,20 +8,30 @@ export default class HeaderEditNpp extends Component {
         super(props);
 
         this.state = {
-            // id: '',
+            id: '',
+            report_id: [],
         }
     }
 
+    async componentDidMount() {
+        let url = window.location.href
+        let id = url.match(/\d+$/)[0]
+        this.setState({
+            id: id
+        })
+
+        await fetch(`http://185.246.64.43:8080/input/rest/npp_main/${id}`)
+
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    report_id: response.main.report_id,
+                })
+            })
+    }
 
 
     render() {
-
-        let url = window.location.href
-        let id = url.match(/\d+$/)[0]
-        // this.setState({
-        //     id: id
-        // })
-        // console.log('idHeader', id)
 
         return (
             <div className='header'>
@@ -29,19 +39,19 @@ export default class HeaderEditNpp extends Component {
                     <NavLink to='/'>
                         <Button type="primary" className='navigation' ghost><ArrowRightOutlined/>Система Ввода</Button>
                     </NavLink>
-                    <NavLink to={`/npp/main/${id}`}>
+                    <NavLink to={`/npp/main/${this.state.id}`}>
                         <Button type="primary" className='navigation' ghost>Описание</Button>
                     </NavLink>
-                    <NavLink to={`/npp/chapters/${id}`}>
+                    <NavLink to={`/npp/chapters/${this.state.id}`}>
                         <Button type="primary" className='navigation' ghost>Разделы</Button>
                     </NavLink>
-                    <NavLink to={`/npp/fields/${id}`}>
+                    <NavLink to={`/npp/fields/${this.state.id}`}>
                         <Button type="primary" className='navigation' ghost>Код. Карта</Button>
                     </NavLink>
-                    <NavLink to={`/npp/anomal/${id}`}>
+                    <NavLink to={`/npp/anomal/${this.state.id}`}>
                         <Button type="primary" className='navigation' ghost>Аномальное событие</Button>
                     </NavLink>
-                    <NavLink to={`/npp/files/${id}`}>
+                    <NavLink to={`/npp/files/${this.state.id}`}>
                         <Button type="primary" className='navigation' ghost>Файлы</Button>
                     </NavLink>
                     <Button type="primary" ghost className='btn-avatar'>
@@ -50,6 +60,8 @@ export default class HeaderEditNpp extends Component {
                         <CaretDownOutlined/>
                     </Button>
                 </div>
+                <div className='edit-sh'><FileOutlined style={{ fontSize: '25px', color: '#08c' }} /> Редактирование отчета о нарушении</div>
+                <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
             </div>
 
         )

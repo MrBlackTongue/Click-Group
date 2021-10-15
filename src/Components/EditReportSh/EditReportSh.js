@@ -23,7 +23,6 @@ export default class EditReportSh extends Component {
             date_str: [],
             report_types: [],
             report_type_id: [],
-            // report_type_value: '',
             selectValueType: "",
             selectValueCode: "",
             selectValueDesc: "",
@@ -41,7 +40,6 @@ export default class EditReportSh extends Component {
         this.setState({
             id: id
         })
-        // console.log('id', this.state.id)
 
         await fetch(`http://185.246.64.43:8080/input/rest/sh_main/${id}`)
 
@@ -61,10 +59,6 @@ export default class EditReportSh extends Component {
                     pnag_desc: response.main.pnag_desc,
 
                 })
-
-                // console.log('report', this.state.report)
-                // console.log('index_text', this.state.index_text)
-                // this.props.updateId(this.state.id)
             })
         this.setState({
             selectValueType: "1",
@@ -92,9 +86,9 @@ export default class EditReportSh extends Component {
         });
     };
 
-    changeHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+    // changeHandler = (e) => {
+    //     this.setState({[e.target.name]: e.target.value})
+    // }
 
     fetchData = (e) => {
         e.preventDefault()
@@ -209,7 +203,7 @@ Request Method: POST`, requestOptions)
                         </Form.Item>
 
                         <Form.Item label="">
-                            <Button type="primary" ghost onClick={this.fetchData}>Принять изменения</Button>
+                            <Button type="primary" ghost onClick={this.fetchData}>Применить изменения</Button>
                         </Form.Item>
                     </Form>
                 </div>

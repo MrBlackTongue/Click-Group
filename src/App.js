@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import EditMainSh from "./Pages/EditMainSh";
 import EditMainNpp from "./Pages/EditMainNpp";
 import EditChaptersSh from "./Pages/EditChaptersSh";
+import EditChaptersNpp from "./Pages/EditChaptersNpp";
 
 export default class App extends React.Component {
 
@@ -48,7 +49,10 @@ export default class App extends React.Component {
                             <EditChaptersSh {...props} id={this.state.id}/>
                         )}/>
 
-                        {/*<Route path={`/npp/main/`} component={EditMainNpp}/>*/}
+                        <Route path={`/npp/chapters/`} render={(props) => (
+                            <EditChaptersNpp {...props} id={this.state.id}/>
+                        )}/>
+
                     </Switch>
                 </BrowserRouter>
                 {/*<div className="App">*/}
