@@ -165,9 +165,13 @@ th {
 
 
 .navigation {
-  margin: 6px 5px;
+  margin: 6px 0;
 }
 
+.navigation-first {
+  margin-left: 300px;
+
+}
 
 .header-nav {
   display: flex;
@@ -253,7 +257,13 @@ th {
   color: grey;
 }
 
-/*.svg {*/
-/*  background-image:*/
-/*url("http://www.w3.org/2000/svg");*/
-/*}*/
+.svg {
+  width: 15%;
+  /*size: 3rem;*/
+  /*height: 30%;*/
+}
+
+.logo-report {
+  display: flex;
+  line-height: 50px;
+}

@@ -173,6 +173,7 @@ export default class TreeSidebar extends Component {
                                 // onSelect={onSelect}
                                 onCheck={this.onCheckPlants}
                                 treeData={this.state.plants}
+                                defaultExpandAll
                             />
                         </Panel>
                         <Panel header="Задачи" key="2">

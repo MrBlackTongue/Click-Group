@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import {ArrowRightOutlined, UserOutlined, CaretDownOutlined} from '@ant-design/icons'
+import {UserOutlined, CaretDownOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
+import Logo from "../Logo/Logo";
 
 export default class Header extends Component {
     constructor(props) {
@@ -27,7 +28,8 @@ export default class Header extends Component {
         return (
             <div className='header'>
                 <div className="site-page-header">
-                    <Button type="primary" className='svg' ghost><ArrowRightOutlined/>Система Ввода</Button>
+                    <Logo/>
+                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
                     <div className='search-panel'>
                         <SearchPanel updateData={this.updateData}/>
                     </div>
