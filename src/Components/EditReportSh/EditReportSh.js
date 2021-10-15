@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Tabs, Input, Form, Select, Button} from 'antd';
 import {Option} from "antd/es/mentions";
-// import {ArrowRightOutlined, CaretDownOutlined, UserOutlined} from '@ant-design/icons'
 
 const {TabPane} = Tabs;
 const {TextArea} = Input;
@@ -11,11 +10,12 @@ function callback(key) {
 }
 
 
-export default class EditReport extends Component {
+export default class EditReportSh extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            id: '',
             report: [],
             index_text: [],
             title: [],
@@ -23,8 +23,14 @@ export default class EditReport extends Component {
             date_str: [],
             report_types: [],
             report_type_id: [],
-            report_type_value: '',
-            selectValue: "",
+            // report_type_value: '',
+            selectValueType: "",
+            selectValueCode: "",
+            selectValueDesc: "",
+            cod_techs: [],
+            pnags: [],
+            cod_tech: [],
+            pnag_desc: [],
 
         }
     }
@@ -32,6 +38,10 @@ export default class EditReport extends Component {
     async componentDidMount() {
         let url = window.location.href
         let id = url.match(/\d+$/)[0]
+        this.setState({
+            id: id
+        })
+        // console.log('id', this.state.id)
 
         await fetch(`http://185.246.64.43:8080/input/rest/sh_main/${id}`)
 
@@ -45,6 +55,10 @@ export default class EditReport extends Component {
                     date_str: response.main.date_str,
                     report_types: response.report_types,
                     report_type_id: response.main.report_type_id,
+                    cod_techs: response.cod_techs,
+                    pnags: response.pnags,
+                    cod_tech: response.main.cod_tech,
+                    pnag_desc: response.main.pnag_desc,
 
                 })
 
@@ -53,46 +67,62 @@ export default class EditReport extends Component {
                 // this.props.updateId(this.state.id)
             })
         this.setState({
-            selectValue: "1"
+            selectValueType: "1",
+            selectValueCode: "Не влияет",
+            selectValueDesc: "РД ЭО 1.1.2.01.0163-2016",
         })
-
-        // .then(response => {
-        //     let types = this.state.report_types
-        //     let selectId = String(this.state.report_type_id)
-        //     // let result = types.filter((el) => {
-        //     //     return el.key == selectId
-        //     // })[0].value
-        //     let result;
-        //     for (let i = 0; i < types.length; i++) {
-        //         if (types[i].key === selectId) {
-        //             result = types[i].value;
-        //             break;
-        //         }
-        //     }
-        //     console.log('id', selectId)
-        //     console.log('types', types)
-        //     console.log('result', result)
-        //     this.setState({
-        //         report_type_value: result,
-        //
-        //     })
-        //     console.log('result', this.state.report_type_value)
-        //
-        // })
 
     }
 
-    changeValue = (value) => {
+    changeValueType = (value) => {
         this.setState({
-            selectValue: value
+            selectValueType: value
         });
     };
 
+    changeValueCode = (value) => {
+        this.setState({
+            selectValueCode: value
+        });
+    };
+
+    changeValueDesc = (value) => {
+        this.setState({
+            selectValueDesc: value
+        });
+    };
+
+    changeHandler = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    fetchData = (e) => {
+        e.preventDefault()
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                // index_text: e.target.value,
+
+                // index_text: this.state.index_text,
+                // title: this.state.report_type_id,
+                // report_id: this.state.report_id,
+                // date_str: this.state.date_str,
+                // report_type_id: this.state.report_type_id,
+                // cod_tech: this.state.cod_tech,
+                // pnag_desc: this.state.pnag_desc,
+            })
+        };
+        fetch(`http://185.246.64.43:8080/input/rest/sh_main/${this.state.id}/save
+Request Method: POST`, requestOptions)
+            .then(response => response.json())
+            .then(data => this.setState({
+                report: data
+            }));
+    }
+
 
     render() {
-
-        let arr = ['svetka', 'dimka']
-
 
         return (
             <div className='edit-report-sh'>
@@ -136,37 +166,50 @@ export default class EditReport extends Component {
                         <Form.Item label="">
                             <div className='label'>Тип отклонения:</div>
                             <Select
-                                value={this.state.selectValue}
-                                onChange={this.changeValue}
+                                value={this.state.selectValueType}
+                                onChange={this.changeValueType}
                                 optionLabelProp='label'>
-
                                 {this.state.report_types.map((item) => (
                                     <Option key={item.key} value={item.key} label={item.value}
                                     >
                                         {item.value}
                                     </Option>
                                 ))}
-
-
                             </Select>
                         </Form.Item>
 
                         <Form.Item label="">
                             <div className='label'>Влияние на надёжность энергосистемы</div>
-                            <Select>
-                                <Select.Option value="demo">основной</Select.Option>
+                            <Select
+                                value={this.state.selectValueCode}
+                                onChange={this.changeValueCode}
+                                optionLabelProp='label'>
+                                {this.state.cod_techs.map((item) => (
+                                    <Option key={item.key} value={item.key} label={item.value}
+                                    >
+                                        {item.value}
+                                    </Option>
+                                ))}
                             </Select>
                         </Form.Item>
 
                         <Form.Item label="">
                             <div className='label'>Нормативная документация:</div>
-                            <Select>
-                                <Select.Option value="demo">основной</Select.Option>
+                            <Select
+                                value={this.state.selectValueDesc}
+                                onChange={this.changeValueDesc}
+                                optionLabelProp='label'>
+                                {this.state.pnags.map((item) => (
+                                    <Option key={item.key} value={item.key} label={item.value}
+                                    >
+                                        {item.value}
+                                    </Option>
+                                ))}
                             </Select>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <Button type="primary" ghost>Принять изменения</Button>
+                            <Button type="primary" ghost onClick={this.fetchData}>Принять изменения</Button>
                         </Form.Item>
                     </Form>
                 </div>

@@ -3,7 +3,9 @@ import ru_RU from 'antd/lib/locale/ru_RU';
 import {ConfigProvider} from 'antd';
 import Home from "./Pages/Home";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import EditMain from "./Pages/EditMain";
+import EditMainSh from "./Pages/EditMainSh";
+import EditMainNpp from "./Pages/EditMainNpp";
+import EditChaptersSh from "./Pages/EditChaptersSh";
 
 export default class App extends React.Component {
 
@@ -36,10 +38,17 @@ export default class App extends React.Component {
                         )}/>
 
                         <Route path={`/sh/main/`} render={(props) => (
-                            <EditMain {...props} id={this.state.id}/>
+                            <EditMainSh {...props} id={this.state.id}/>
+                        )}/>
+                        <Route path={`/npp/main/`} render={(props) => (
+                            <EditMainNpp {...props} id={this.state.id}/>
                         )}/>
 
-                        <Route path={`/npp/main/`} component={EditMain}/>
+                        <Route path={`/sh/chapters/`} render={(props) => (
+                            <EditChaptersSh {...props} id={this.state.id}/>
+                        )}/>
+
+                        {/*<Route path={`/npp/main/`} component={EditMainNpp}/>*/}
                     </Switch>
                 </BrowserRouter>
                 {/*<div className="App">*/}
