@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button, Avatar} from 'antd';
 import {ArrowRightOutlined, CaretDownOutlined, FileOutlined, UserOutlined} from '@ant-design/icons'
 import {NavLink} from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 export default class HeaderEditNpp extends Component {
     constructor(props) {
@@ -36,6 +37,7 @@ export default class HeaderEditNpp extends Component {
         return (
             <div className='header'>
                 <div className="header-nav">
+                    <Logo/>
                     <NavLink to='/'>
                         <Button type="primary" className='navigation' ghost><ArrowRightOutlined/>Система Ввода</Button>
                     </NavLink>

@@ -169,13 +169,18 @@ th {
 }
 
 .navigation-first {
-  margin-left: 300px;
+  /*margin-left: 300px;*/
 
 }
 
 .header-nav {
-  display: flex;
+  margin: 5px;
+  color: white !important;
+  height: 35px !important;
+  /*justify-content: space-between !important;*/
+  display: flex !important;
   align-items: center;
+  justify-content: center;
 }
 
 
@@ -245,14 +250,14 @@ th {
 
 .edit-sh {
   margin-top: 10px;
-  margin-left: 30px;
+  margin-left: 300px;
   font-size: 18px;
   font-weight: bold;
 }
 
 .edit-sh-name {
   /*margin-top: 10px;*/
-  margin-left: 60px;
+  margin-left: 330px;
   font-size: 15px;
   color: grey;
 }

@@ -37,11 +37,8 @@ export default class HeaderEditSh extends Component {
 
         return (
             <div className='header'>
-                {/*<div className='logo-report'>*/}
-                    {/*<Logo/>*/}
-
                     <div className="header-nav">
-
+                        <Logo/>
                         <NavLink to='/'>
                             <Button type="primary" className='navigation-first' ghost size='large'><ArrowRightOutlined/>Система
                                 Ввода</Button>
@@ -67,8 +64,6 @@ export default class HeaderEditSh extends Component {
                             <CaretDownOutlined/>
                         </Button>
                     </div>
-
-                {/*</div>*/}
 
                 <div className='edit-sh'><FileOutlined style={{ fontSize: '25px', color: '#08c' }} /> Редактирование отчета об отклонении</div>
                 <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
