@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import {Button, Avatar} from 'antd';
-import {ArrowRightOutlined, CaretDownOutlined, UserOutlined, FileOutlined} from '@ant-design/icons'
+import {Button, Avatar, Radio} from 'antd';
+import {ArrowLeftOutlined, CaretDownOutlined, UserOutlined, FileOutlined} from '@ant-design/icons'
 import {NavLink} from "react-router-dom";
 import Logo from "../Logo/Logo";
+
 
 export default class HeaderEditSh extends Component {
     constructor(props) {
@@ -11,18 +12,19 @@ export default class HeaderEditSh extends Component {
         this.state = {
             id: '',
             report_id: [],
+            page: 'enter',
         }
     }
 
 
-    async componentDidMount() {
+     componentDidMount() {
         let url = window.location.href
         let id = url.match(/\d+$/)[0]
         this.setState({
-            id: id
+            id: id,
         })
 
-        await fetch(`http://185.246.64.43:8080/input/rest/sh_main/${id}`)
+         fetch(`http://185.246.64.43:8080/input/rest/sh_main/${id}`)
 
             .then(response => response.json())
             .then(response => {
@@ -30,42 +32,92 @@ export default class HeaderEditSh extends Component {
                     report_id: response.main.report_id,
                 })
             })
+
+        if (url.indexOf('main') !== -1) {
+            this.setState({
+                page: 'main'
+            })
+
+        } else if (url.indexOf('chapters') !== -1) {
+            this.setState({
+                page: 'chapters'
+            })
+        // } else if (url.indexOf('fields') !== -1) {
+        //     this.setState({
+        //         page: 'fields'
+        //     })
+        // } else if (url.indexOf('anomal') !== -1) {
+        //     this.setState({
+        //         page: 'fields'
+        //     })
+        // } else if (url.indexOf('files') !== -1) {
+        //     this.setState({
+        //         page: 'files'
+        //     })
+
+
+        }
     }
 
 
     render() {
+        const {page} = this.state
 
         return (
             <div className='header'>
-                    <div className="header-nav">
-                        <Logo/>
-                        <NavLink to='/'>
-                            <Button type="primary" className='navigation-first' ghost size='large'><ArrowRightOutlined/>Система
-                                Ввода</Button>
-                        </NavLink>
-                        <NavLink to={`/sh/main/${this.state.id}`}>
-                            <Button type="primary" className='navigation' ghost size='large'>Описание</Button>
-                        </NavLink>
-                        <NavLink to={`/sh/chapters/${this.state.id}`}>
-                            <Button type="primary" className='navigation' ghost size='large'>Разделы</Button>
-                        </NavLink>
-                        <NavLink to={`/sh/fields/${this.state.id}`}>
-                            <Button type="primary" className='navigation' ghost size='large'>Код. Карта</Button>
-                        </NavLink>
-                        <NavLink to={`/sh/anomal/${this.state.id}`}>
-                            <Button type="primary" className='navigation' ghost size='large'>Аномальное событие</Button>
-                        </NavLink>
-                        <NavLink to={`/sh/files/${this.state.id}`}>
-                            <Button type="primary" className='navigation' ghost size='large'>Файлы</Button>
-                        </NavLink>
-                        <Button type="primary" ghost className='btn-avatar'>
-                            <Avatar size={20} icon={<UserOutlined/>}/>
-                            &nbsp; find
-                            <CaretDownOutlined/>
-                        </Button>
-                    </div>
+                <div className="header-nav">
+                    <Logo/>
+                    <Radio.Group value={page} onChange={this.state.page} size='large'>
+                        <Radio.Button value='enter'>
+                            <NavLink to='/'>
+                                <ArrowLeftOutlined/> Система
+                                Ввода
+                            </NavLink>
+                        </Radio.Button>
 
-                <div className='edit-sh'><FileOutlined style={{ fontSize: '25px', color: '#08c' }} /> Редактирование отчета об отклонении</div>
+                        <Radio.Button value='main'>
+                            <NavLink to={`/sh/main/${this.state.id}`}>
+                                Описание
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='chapters'>
+                            <NavLink to={`/sh/chapters/${this.state.id}`}>
+                                Разделы
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='fields'>
+                            <NavLink to={`/sh/fields/${this.state.id}`}>
+                                Код. Карта
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='anomal'>
+                            <NavLink to={`/sh/anomal/${this.state.id}`}>
+                                Аномальное событие
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='files'>
+                            <NavLink to={`/sh/files/${this.state.id}`}>
+                                Файлы
+                            </NavLink>
+                        </Radio.Button>
+                    </Radio.Group>
+
+                    <Button type="primary" ghost className='btn-avatar'>
+                        <Avatar size={20} icon={<UserOutlined/>}/>
+                        &nbsp; find
+                        <CaretDownOutlined/>
+                    </Button>
+                </div>
+
+                <div className='edit-sh'><FileOutlined style={{fontSize: '25px', color: '#08c'}}/> Редактирование
+                    отчета
+                    об
+                    отклонении
+                </div>
                 <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
             </div>
         )

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {Button, Avatar} from 'antd';
-import {ArrowRightOutlined, CaretDownOutlined, FileOutlined, UserOutlined} from '@ant-design/icons'
+import {Button, Avatar, Radio} from 'antd';
+import {ArrowLeftOutlined, CaretDownOutlined, FileOutlined, UserOutlined} from '@ant-design/icons'
 import {NavLink} from "react-router-dom";
 import Logo from "../Logo/Logo";
 
@@ -11,58 +11,107 @@ export default class HeaderEditNpp extends Component {
         this.state = {
             id: '',
             report_id: [],
+            page: 'enter',
+
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         let url = window.location.href
         let id = url.match(/\d+$/)[0]
         this.setState({
             id: id
         })
 
-        await fetch(`http://185.246.64.43:8080/input/rest/npp_main/${id}`)
+            fetch(`http://185.246.64.43:8080/input/rest/npp_main/${id}`)
 
-            .then(response => response.json())
-            .then(response => {
-                this.setState({
-                    report_id: response.main.report_id,
+                .then(response => response.json())
+                .then(response => {
+                    this.setState({
+                        report_id: response.main.report_id,
+                    })
                 })
+
+        if (url.indexOf('main') !== -1) {
+            this.setState({
+                page: 'main'
             })
+
+        } else if (url.indexOf('chapters') !== -1) {
+            this.setState({
+                page: 'chapters'
+            })
+            // } else if (url.indexOf('fields') !== -1) {
+            //     this.setState({
+            //         page: 'fields'
+            //     })
+            // } else if (url.indexOf('anomal') !== -1) {
+            //     this.setState({
+            //         page: 'fields'
+            //     })
+            // } else if (url.indexOf('files') !== -1) {
+            //     this.setState({
+            //         page: 'files'
+            //     })
+        }
     }
 
 
     render() {
+        const {page} = this.state
 
         return (
             <div className='header'>
                 <div className="header-nav">
                     <Logo/>
-                    <NavLink to='/'>
-                        <Button type="primary" className='navigation' ghost><ArrowRightOutlined/>Система Ввода</Button>
-                    </NavLink>
-                    <NavLink to={`/npp/main/${this.state.id}`}>
-                        <Button type="primary" className='navigation' ghost>Описание</Button>
-                    </NavLink>
-                    <NavLink to={`/npp/chapters/${this.state.id}`}>
-                        <Button type="primary" className='navigation' ghost>Разделы</Button>
-                    </NavLink>
-                    <NavLink to={`/npp/fields/${this.state.id}`}>
-                        <Button type="primary" className='navigation' ghost>Код. Карта</Button>
-                    </NavLink>
-                    <NavLink to={`/npp/anomal/${this.state.id}`}>
-                        <Button type="primary" className='navigation' ghost>Аномальное событие</Button>
-                    </NavLink>
-                    <NavLink to={`/npp/files/${this.state.id}`}>
-                        <Button type="primary" className='navigation' ghost>Файлы</Button>
-                    </NavLink>
+                    <Radio.Group value={page} onChange={this.state.page} size='large'>
+                        <Radio.Button value='enter'>
+                            <NavLink to='/'>
+                                <ArrowLeftOutlined/> Система
+                                Ввода
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='main'>
+                            <NavLink to={`/npp/main/${this.state.id}`}>
+                                Описание
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='chapters'>
+                            <NavLink to={`/npp/chapters/${this.state.id}`}>
+                                Разделы
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='fields'>
+                            <NavLink to={`/npp/fields/${this.state.id}`}>
+                                Код. Карта
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='anomal'>
+                            <NavLink to={`/npp/anomal/${this.state.id}`}>
+                                Аномальное событие
+                            </NavLink>
+                        </Radio.Button>
+
+                        <Radio.Button value='files'>
+                            <NavLink to={`/npp/files/${this.state.id}`}>
+                                Файлы
+                            </NavLink>
+                        </Radio.Button>
+                    </Radio.Group>
+
                     <Button type="primary" ghost className='btn-avatar'>
                         <Avatar size={20} icon={<UserOutlined/>}/>
                         &nbsp; find
                         <CaretDownOutlined/>
                     </Button>
                 </div>
-                <div className='edit-sh'><FileOutlined style={{ fontSize: '25px', color: '#08c' }} /> Редактирование отчета о нарушении</div>
+                <div className='edit-sh'><FileOutlined style={{fontSize: '25px', color: '#08c'}}/> Редактирование отчета
+                    о нарушении
+                </div>
                 <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
             </div>
 
