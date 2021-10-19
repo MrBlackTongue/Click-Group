@@ -15,20 +15,28 @@ export default class SearchPanel extends Component {
             loading: false,
             // value: '',
             data: [],
+            pageNum: 1,
+            pageSize: 10,
+            total: '',
+            value: '',
         }
     }
 
 
     onSearch = (value) => {
         // console.log('value', value);
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&query=${value}&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500`)
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&query=${value}&plant_codes=&tasks=&date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
-                    data: response.rows
+                    data: response.rows,
+                    total: response.total,
                 })
-                // console.log('searchData', response.rows)
                 this.props.updateData(this.state.data)
+                this.props.updateTotal(this.state.total)
+                this.props.updatePageNum(this.state.pageNum)
+                this.props.updatePageSize(this.state.pageSize)
+                this.props.updateValue(value)
             })
     }
 

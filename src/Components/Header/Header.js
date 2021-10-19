@@ -11,6 +11,9 @@ export default class Header extends Component {
 
         this.state = {
             data: this.props.dataParentToChild,
+            pageNum: 1,
+            pageSize: 10,
+            total: '',
         }
     }
 
@@ -19,10 +22,32 @@ export default class Header extends Component {
             data: value
         })
         this.props.updateData(this.state.data)
-
-        // console.log('valueHeader', this.state.data)
     }
 
+    updateTotal = (value) => {
+        this.setState({
+            total: value,
+        })
+        this.props.updateTotal(this.state.total)
+    }
+
+    updatePageNum = (value) => {
+        this.setState({
+            pageNum: value,
+        })
+        this.props.updatePageNum(this.state.pageNum)
+    }
+
+    updatePageSize = (value) => {
+        this.setState({
+            pageSize: value,
+        })
+        this.props.updatePageSize(this.state.pageSize)
+    }
+
+    updateValue = (value) => {
+        this.props.updateValue(value)
+    }
 
     render() {
         return (
@@ -31,7 +56,13 @@ export default class Header extends Component {
                     <Logo/>
                     {/*<Button type="primary" ghost>Система Ввода</Button>*/}
                     <div className='search-panel'>
-                        <SearchPanel updateData={this.updateData}/>
+                        <SearchPanel
+                            updateData={this.updateData}
+                            updateTotal={this.updateTotal}
+                            updatePageNum={this.updatePageNum}
+                            updatePageSize={this.updatePageSize}
+                            updateValue={this.updateValue}
+                        />
                     </div>
                     <div className='date'>
                         <Space direction="horizontal">

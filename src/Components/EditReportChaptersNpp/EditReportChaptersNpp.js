@@ -106,7 +106,7 @@ Request Method: POST`, requestOptions)
                 <div className='text-doc-chapters'>
                     <Tabs defaultActiveKey="1" onChange={callback}>
                         <TabPane tab="Текст документа" key="1">
-                            <TextArea rows={150} value={this.state.index_text}/>
+                            <TextArea rows={155} value={this.state.index_text}/>
                         </TabPane>
                         <TabPane tab="Оригинал документа" key="2">
                         </TabPane>
@@ -135,22 +135,22 @@ Request Method: POST`, requestOptions)
 
                         <Form.Item label="">
                             <div className='label'>1. ОПИСАНИЕ НАРУШЕНИЯ</div>
-                            <div className=''>1.1. Состояние блока (АС) до нарушения.</div>
+                            <div className='label-point'>1.1. Состояние блока (АС) до нарушения.</div>
                             <TextArea rows={8} value={this.state.un_state}/>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <div className=''>1.2. Описание последовательности отказов, ошибок персонала в ходе нарушения.</div>
+                            <div className='label-point'>1.2. Описание последовательности отказов, ошибок персонала в ходе нарушения.</div>
                             <TextArea rows={8} value={this.state.descrip}/>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <div className=''>1.3. Действия, предпринятые для выяснения отказов, ошибок персонала.</div>
+                            <div className='label-point'>1.3. Действия, предпринятые для выяснения отказов, ошибок персонала.</div>
                             <TextArea rows={8} value={this.state.action}/>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <div className=''>1.4. Предшествующие аналогичные нарушения.</div>
+                            <div className='label-point'>1.4. Предшествующие аналогичные нарушения.</div>
                             <TextArea rows={8} value={this.state.analog}/>
                         </Form.Item>
 
@@ -161,17 +161,17 @@ Request Method: POST`, requestOptions)
 
                         <Form.Item label="">
                             <div className='label'>3. ПРИЧИНЫ НАРУШЕНИЯ</div>
-                            <div className=''>3.1. Перечень отказов, ошибок персонала в ходе нарушения.</div>
+                            <div className='label-point'>3.1. Перечень отказов, ошибок персонала в ходе нарушения.</div>
                             <TextArea rows={8} value={this.state.anomal}/>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <div className=''>3.2. Непосредственные причины отказов, ошибок персонала.</div>
+                            <div className='label-point'>3.2. Непосредственные причины отказов, ошибок персонала.</div>
                             <TextArea rows={8} value={this.state.direct_cause}/>
                         </Form.Item>
 
                         <Form.Item label="">
-                            <div className=''>3.3. Коренные причины отказов, ошибок персонала.</div>
+                            <div className='label-point'>3.3. Коренные причины отказов, ошибок персонала.</div>
                             <TextArea rows={8} value={this.state.root_cause}/>
                         </Form.Item>
 

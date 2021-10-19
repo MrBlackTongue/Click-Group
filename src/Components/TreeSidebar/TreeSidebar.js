@@ -6,10 +6,6 @@ import Service from "../../services/service";
 
 const {Panel} = Collapse;
 
-// const onSelect = (selectedKeys, info) => {
-//     console.log('selected', selectedKeys, info);
-// };
-
 export default class TreeSidebar extends Component {
     constructor(props) {
         super(props);
@@ -29,6 +25,10 @@ export default class TreeSidebar extends Component {
                     key: '',
                 },
             ],
+            total: '',
+            pageNum: 1,
+            pageSize: 10,
+
         }
     }
 
@@ -49,7 +49,7 @@ export default class TreeSidebar extends Component {
             }))
             .then(item => {
                 this.setState({
-                    plants: item
+                    plants: item,
                 })
             })
 
@@ -71,13 +71,20 @@ export default class TreeSidebar extends Component {
             })
 
 
-        fetch('http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=1&pageSize=1500')
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(response => {
                 this.setState({
-                    data: response.rows
+                    data: response.rows,
+                    total: response.total,
+
                 })
+                console.log('response', response)
                 this.props.updateData(this.state.data)
+                this.props.updateTotal(this.state.total)
+                this.props.updatePageNum(this.state.pageNum)
+                this.props.updatePageSize(this.state.pageSize)
+
             })
     }
 
@@ -87,11 +94,9 @@ export default class TreeSidebar extends Component {
         for (let i = 0; i < checkedKeys.length; i++) {
             plantsFilter.push('plants=' + checkedKeys[i] + '&')
         }
-        // console.log('checkedKeys', checkedKeys)
         this.setState({
             plantsFilter: plantsFilter.join('')
         })
-        // console.log('plantsFilter', this.state.plantsFilter);
         // await this.fetchData(plantsFilter)
     };
 
@@ -100,23 +105,25 @@ export default class TreeSidebar extends Component {
         for (let i = 0; i < checkedKeys.length; i++) {
             tasksFilter.push('tasks=' + checkedKeys[i] + '&')
         }
-        // console.log('checkedKeys', checkedKeys)
         this.setState({
             plantsFilter: tasksFilter.join('')
         })
-        // console.log('tasksFilter', this.state.tasksFilter);
         // await this.fetchData(plantsFilter)
     };
 
     fetchData = () => {
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.plantsFilter}${this.state.tasksFilter}date1=&date2=&pageNum=1&pageSize=1500`)
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.plantsFilter}${this.state.tasksFilter}date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
-                    data: response.rows
+                    data: response.rows,
+                    total: response.total,
                 })
                 // console.log('dataTree', response.rows)
                 this.props.updateData(this.state.data)
+                this.props.updateTotal(this.state.total)
+                this.props.updatePageNum(this.state.pageNum)
+                this.props.updatePageSize(this.state.pageSize)
             })
     }
 
@@ -138,19 +145,6 @@ export default class TreeSidebar extends Component {
         });
         this.state.tasks.map((el) => (el['key'] = el.id))
     }
-
-    // updatePlants = () => {
-    //     this.state.plants.forEach((el) => {
-    //         this.addTitleObj(this.state.plants, (el['title'] = el.name));
-    //     });
-    //     this.state.plants.map((el) => (el['title'] = el.name));
-    // };
-    // updateTasks = () => {
-    //     this.state.tasks.forEach((el) => {
-    //         this.addTitleObj(this.state.tasks, (el['title'] = el.name));
-    //     });
-    //     this.state.tasks.map((el) => (el['title'] = el.name));
-    // };
 
 
     render() {

@@ -25,7 +25,6 @@ export default class App extends React.Component {
         this.setState({
             id: value
         })
-        console.log('idApp', this.state.id)
     }
 
     render() {

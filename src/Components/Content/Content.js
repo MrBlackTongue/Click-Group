@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Space, Table, Button} from 'antd';
+import {Space, Table, Button, Pagination} from 'antd';
 import {FormOutlined, RetweetOutlined, ArrowUpOutlined, DeleteOutlined, PlusOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 
@@ -15,6 +15,14 @@ export default class Content extends Component {
             report: [],
             index_text: [],
             id: [],
+            pagination: {
+                current: 1,
+                pageSize: 10,
+            },
+            total: [],
+            pageNum: 1,
+            pageSize: 10,
+            tasksFilter: '',
         }
 
     }
@@ -23,12 +31,9 @@ export default class Content extends Component {
 
     }
 
-    onDoubleClick() {
-
-    }
-
 
     render() {
+        console.log('total', this.props.totalParentToChild)
 
         const columns = [
             {
@@ -70,9 +75,8 @@ export default class Content extends Component {
             },
         ];
 
-        const {loading} = this.state
-
-        // console.log('dataContent', this.state.data)
+        const {loading, total} = this.state
+        // console.log('total', this.props.totalParentToChild)
 
         return (
             <div className='content'>
@@ -91,8 +95,9 @@ export default class Content extends Component {
                        columns={columns}
                        dataSource={this.props.dataParentToChild}
                        loading={loading}
-                    // onChange={this.handleTableChange}
-                       pagination={{position: [this.state.bottom]}}
+                       pagination={false}
+                       // pagination={this.props.size}
+                    // pagination={{position: [this.state.bottom]}}
                        onRow={(record) => {
                            return {
                                onDoubleClick: event => {
@@ -114,25 +119,38 @@ export default class Content extends Component {
                                                id: record.main_id
                                            })
 
-                                           // console.log('record', record)
-
-                                           // console.log('index_text', this.state.index_text)
-                                           console.log('id', this.state.id)
-                                           // console.log('report', this.state.report)
+                                           // console.log('id', this.state.id)
                                            this.props.updateId(this.state.id)
 
-
                                        })
-
-
                                    window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
-
-
                                }
                            }
                        }}
                 />
+                <Pagination
+                    // defaultCurrent={1}
+                    className='pagination'
+                    total={this.props.totalParentToChild}
+                    current={this.props.num}
+                    // current={this.props.pageNumParentToChild}
+                    pageSize={this.props.size}
+                    // onChange={this.onChangePagination}
+                    onChange={(num, size) => {
+                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&query=${this.props.value}&plant_codes=&${this.props.tasksFilter}&date1=&date2=&pageNum=${num}&pageSize=${size}`)
+                            .then(response => response.json())
+                            .then(response => {
+                                this.setState({
+                                    data: response.rows,
+                                })
+                                this.props.onChange(response.rows)
+                                this.props.updatePageNum(num)
+                                this.props.updatePageSize(size)
 
+                            })
+                        }
+                    }
+                />
             </div>
         )
     }
