@@ -18,6 +18,7 @@ export default class Home extends React.Component {
             pageSize: '',
             value: '',
             tasksFilter: '',
+            plantsFilter: '',
         }
 
     }
@@ -59,9 +60,15 @@ export default class Home extends React.Component {
         })
     }
 
-    updateTasks = (value) => {
+    updateTasksFilter = (value) => {
         this.setState({
             tasksFilter: value,
+        })
+    }
+
+    updatePlantsFilter = (value) => {
+        this.setState({
+            plantsFilter: value,
         })
     }
 
@@ -74,7 +81,8 @@ export default class Home extends React.Component {
     render() {
         const {data, total, pageNum, pageSize} = this.state
 
-        console.log('data', this.state.data)
+        // console.log('data', this.state.data)
+        console.log('plantsFilterHome', this.state.plantsFilter)
 
         return (
                 <div className="Home">
@@ -91,7 +99,8 @@ export default class Home extends React.Component {
                             updateTotal={this.updateTotal}
                             updatePageNum={this.updatePageNum}
                             updatePageSize={this.updatePageSize}
-                            updateTasks={this.updateTasks}
+                            updateTasksFilter={this.updateTasksFilter}
+                            updatePlantsFilter={this.updatePlantsFilter}
                         />
                         <Content
                             dataParentToChild={data}
@@ -105,7 +114,8 @@ export default class Home extends React.Component {
                             value={this.state.value}
                             updatePageNum={this.updatePageNum}
                             updatePageSize={this.updatePageSize}
-                            updateTasks={this.updateTasks}
+                            updateTasksFilter={this.state.tasksFilter}
+                            updatePlantsFilter={this.state.plantsFilter}
 
                         />
                     </div>

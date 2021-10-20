@@ -79,7 +79,7 @@ export default class TreeSidebar extends Component {
                     total: response.total,
 
                 })
-                console.log('response', response)
+                // console.log('response', response)
                 this.props.updateData(this.state.data)
                 this.props.updateTotal(this.state.total)
                 this.props.updatePageNum(this.state.pageNum)
@@ -106,7 +106,7 @@ export default class TreeSidebar extends Component {
             tasksFilter.push('tasks=' + checkedKeys[i] + '&')
         }
         this.setState({
-            plantsFilter: tasksFilter.join('')
+            tasksFilter: tasksFilter.join('')
         })
         // await this.fetchData(plantsFilter)
     };
@@ -124,6 +124,10 @@ export default class TreeSidebar extends Component {
                 this.props.updateTotal(this.state.total)
                 this.props.updatePageNum(this.state.pageNum)
                 this.props.updatePageSize(this.state.pageSize)
+                this.props.updateTasksFilter(this.state.tasksFilter)
+                this.props.updatePlantsFilter(this.state.plantsFilter)
+                console.log('updatePlansFilterTree', this.state.plantsFilter)
+
             })
     }
 

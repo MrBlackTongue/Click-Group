@@ -23,6 +23,7 @@ export default class Content extends Component {
             pageNum: 1,
             pageSize: 10,
             tasksFilter: '',
+            plansFilter: '',
         }
 
     }
@@ -33,7 +34,7 @@ export default class Content extends Component {
 
 
     render() {
-        console.log('total', this.props.totalParentToChild)
+        // console.log('total', this.props.totalParentToChild)
 
         const columns = [
             {
@@ -75,8 +76,8 @@ export default class Content extends Component {
             },
         ];
 
-        const {loading, total} = this.state
-        // console.log('total', this.props.totalParentToChild)
+        const {loading} = this.state
+        console.log('plansFilterContent', this.props.updatePlantsFilter)
 
         return (
             <div className='content'>
@@ -137,7 +138,7 @@ export default class Content extends Component {
                     pageSize={this.props.size}
                     // onChange={this.onChangePagination}
                     onChange={(num, size) => {
-                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&query=${this.props.value}&plant_codes=&${this.props.tasksFilter}&date1=&date2=&pageNum=${num}&pageSize=${size}`)
+                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}&query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}&date1=&date2=&pageNum=${num}&pageSize=${size}`)
                             .then(response => response.json())
                             .then(response => {
                                 this.setState({
