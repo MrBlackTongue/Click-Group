@@ -71,7 +71,7 @@ export default class TreeSidebar extends Component {
             })
 
 
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&plant_codes=&tasks=&date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&plants=&query=&plant_codes=&tasks=&date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -79,7 +79,6 @@ export default class TreeSidebar extends Component {
                     total: response.total,
 
                 })
-                // console.log('response', response)
                 this.props.updateData(this.state.data)
                 this.props.updateTotal(this.state.total)
                 this.props.updatePageNum(this.state.pageNum)
@@ -112,21 +111,19 @@ export default class TreeSidebar extends Component {
     };
 
     fetchData = () => {
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.plantsFilter}${this.state.tasksFilter}date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.state.plantsFilter}query=&plant_codes=&${this.state.tasksFilter}date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
                     data: response.rows,
                     total: response.total,
                 })
-                // console.log('dataTree', response.rows)
                 this.props.updateData(this.state.data)
                 this.props.updateTotal(this.state.total)
                 this.props.updatePageNum(this.state.pageNum)
                 this.props.updatePageSize(this.state.pageSize)
                 this.props.updateTasksFilter(this.state.tasksFilter)
                 this.props.updatePlantsFilter(this.state.plantsFilter)
-                console.log('updatePlansFilterTree', this.state.plantsFilter)
 
             })
     }
@@ -157,7 +154,6 @@ export default class TreeSidebar extends Component {
         this.updateKeyTasks()
 
         return (
-
             <div className='sidebar'>
                 <div className='treeSidebar'>
                     <div><h4 className='filters'>Фильтры:</h4></div>
@@ -183,13 +179,17 @@ export default class TreeSidebar extends Component {
                             />
                         </Panel>
                     </Collapse>
-                    <Button type="primary" className='button-ghost' ghost size='default' onClick={this.fetchData}>
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                        onClick={this.fetchData}
+                    >
                         Отфильтровать
                     </Button>
                 </div>
             </div>
-
         )
-            ;
     }
 }

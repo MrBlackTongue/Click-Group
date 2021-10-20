@@ -81,9 +81,6 @@ export default class Home extends React.Component {
     render() {
         const {data, total, pageNum, pageSize} = this.state
 
-        // console.log('data', this.state.data)
-        console.log('plantsFilterHome', this.state.plantsFilter)
-
         return (
                 <div className="Home">
                     <Header
@@ -92,6 +89,8 @@ export default class Home extends React.Component {
                         updatePageNum={this.updatePageNum}
                         updatePageSize={this.updatePageSize}
                         updateValue={this.updateValue}
+                        updatePlantsFilter={this.state.plantsFilter}
+                        updateTasksFilter={this.state.tasksFilter}
                     />
                     <div className='home-context-div'>
                         <TreeSidebar

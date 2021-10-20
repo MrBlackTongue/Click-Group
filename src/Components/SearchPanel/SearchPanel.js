@@ -13,7 +13,6 @@ export default class SearchPanel extends Component {
         this.state = {
             results: '',
             loading: false,
-            // value: '',
             data: [],
             pageNum: 1,
             pageSize: 10,
@@ -24,8 +23,8 @@ export default class SearchPanel extends Component {
 
 
     onSearch = (value) => {
-        // console.log('value', value);
-        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&query=${value}&plant_codes=&tasks=&date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
+
+        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${this.state.pageNum}&pageSize=${this.state.pageSize}`)
             .then(response => response.json())
             .then(async (response) => {
                 await this.setState({
@@ -37,6 +36,7 @@ export default class SearchPanel extends Component {
                 this.props.updatePageNum(this.state.pageNum)
                 this.props.updatePageSize(this.state.pageSize)
                 this.props.updateValue(value)
+
             })
     }
 
@@ -47,11 +47,12 @@ export default class SearchPanel extends Component {
 
 
     render() {
+
+
         return (
             <div className='search'>
                 <Search placeholder="Введите название документа..." allowClear
                         onSearch={this.onSearch} size='large'/>
-                {/*<Search onSubmit={this.searchData}  />*/}
             </div>
         )
     }

@@ -14,6 +14,7 @@ export default class Header extends Component {
             pageNum: 1,
             pageSize: 10,
             total: '',
+            plantsFilter: '',
         }
     }
 
@@ -50,6 +51,7 @@ export default class Header extends Component {
     }
 
     render() {
+        console.log('props', this.props.updatePlantsFilter)
         return (
             <div className='header'>
                 <div className="site-page-header">
@@ -62,6 +64,8 @@ export default class Header extends Component {
                             updatePageNum={this.updatePageNum}
                             updatePageSize={this.updatePageSize}
                             updateValue={this.updateValue}
+                            updatePlantsFilter={this.props.updatePlantsFilter}
+                            updateTasksFilter={this.props.updateTasksFilter}
                         />
                     </div>
                     <div className='date'>

@@ -34,14 +34,12 @@ export default class Content extends Component {
 
 
     render() {
-        // console.log('total', this.props.totalParentToChild)
 
         const columns = [
             {
                 title: '#',
                 dataIndex: 'main_id',
                 fixed: 'left',
-                // render: () => <a>{3082}</a>,
             },
             {
                 title: 'Название',
@@ -77,7 +75,6 @@ export default class Content extends Component {
         ];
 
         const {loading} = this.state
-        console.log('plansFilterContent', this.props.updatePlantsFilter)
 
         return (
             <div className='content'>
@@ -97,8 +94,7 @@ export default class Content extends Component {
                        dataSource={this.props.dataParentToChild}
                        loading={loading}
                        pagination={false}
-                       // pagination={this.props.size}
-                    // pagination={{position: [this.state.bottom]}}
+                       // pagination={{position: [this.state.bottom]}}
                        onRow={(record) => {
                            return {
                                onDoubleClick: event => {
@@ -120,7 +116,6 @@ export default class Content extends Component {
                                                id: record.main_id
                                            })
 
-                                           // console.log('id', this.state.id)
                                            this.props.updateId(this.state.id)
 
                                        })
@@ -130,15 +125,12 @@ export default class Content extends Component {
                        }}
                 />
                 <Pagination
-                    // defaultCurrent={1}
                     className='pagination'
                     total={this.props.totalParentToChild}
                     current={this.props.num}
-                    // current={this.props.pageNumParentToChild}
                     pageSize={this.props.size}
-                    // onChange={this.onChangePagination}
                     onChange={(num, size) => {
-                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}&query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}&date1=&date2=&pageNum=${num}&pageSize=${size}`)
+                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${num}&pageSize=${size}`)
                             .then(response => response.json())
                             .then(response => {
                                 this.setState({
@@ -149,7 +141,7 @@ export default class Content extends Component {
                                 this.props.updatePageSize(size)
 
                             })
-                        }
+                    }
                     }
                 />
             </div>
