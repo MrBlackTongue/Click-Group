@@ -100,7 +100,7 @@ export default class Content extends Component {
                                onDoubleClick: event => {
                                    let name
 
-                                   if (record.filter_tasktype === 'Отклонения (Ввод)') {
+                                   if (record.filter_tasktype === 'Отклонения (Ввод)' || record.filter_tasktype === 'Отклонения (ОИСОЭ)') {
                                        name = 'sh'
                                    } else {
                                        name = 'npp'

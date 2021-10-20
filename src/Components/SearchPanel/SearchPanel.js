@@ -38,6 +38,7 @@ export default class SearchPanel extends Component {
                 this.props.updateValue(value)
 
             })
+
     }
 
 
