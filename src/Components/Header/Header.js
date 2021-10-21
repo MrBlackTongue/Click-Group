@@ -4,8 +4,8 @@ import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
 import Logo from "../Logo/Logo";
-import locale from 'antd/es/date-picker/locale/ru_RU';
-import 'moment/locale/ru';
+// import locale from 'antd/es/date-picker/locale/ru_RU';
+// import 'moment/locale/ru';
 
 export default class Header extends Component {
     constructor(props) {
@@ -57,7 +57,9 @@ export default class Header extends Component {
         return (
             <div className='header'>
                 <div className="site-page-header">
-                    <Logo/>
+                    <div className='logo'>
+                        <Logo/>
+                    </div>
                     {/*<Button type="primary" ghost>Система Ввода</Button>*/}
                     <div className='search-panel'>
                         <SearchPanel
@@ -76,13 +78,13 @@ export default class Header extends Component {
                     {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
                     {/*    </Space>*/}
                     {/*</div>*/}
-                    <Button type="primary" ghost className='btn-avatar'>
-                        <Avatar size={20} icon={<UserOutlined/>}/>
-                        &nbsp; find
-                        <CaretDownOutlined/>
-                    </Button>
-                </div>
 
+                </div>
+                <div className='btn-avatar'>
+                    <Avatar size={30} icon={<UserOutlined/>}/>
+                    <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
+                    {/*<CaretDownOutlined/>*/}
+                </div>
             </div>
         )
     }

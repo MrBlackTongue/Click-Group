@@ -1,12 +1,12 @@
 import React from "react";
 import ru_RU from 'antd/lib/locale/ru_RU';
 import {ConfigProvider} from 'antd';
-import Home from "./Pages/Home";
+import Home from "./layout/Home";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import EditMainSh from "./Pages/EditMainSh";
-import EditMainNpp from "./Pages/EditMainNpp";
-import EditChaptersSh from "./Pages/EditChaptersSh";
-import EditChaptersNpp from "./Pages/EditChaptersNpp";
+import EditMainSh from "./layout/EditMainSh";
+import EditMainNpp from "./layout/EditMainNpp";
+import EditChaptersSh from "./layout/EditChaptersSh";
+import EditChaptersNpp from "./layout/EditChaptersNpp";
 
 export default class App extends React.Component {
 

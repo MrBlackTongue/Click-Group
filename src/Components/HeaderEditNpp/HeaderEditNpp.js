@@ -23,14 +23,14 @@ export default class HeaderEditNpp extends Component {
             id: id
         })
 
-            fetch(`http://185.246.64.43:8080/input/rest/npp_main/${id}`)
+        fetch(`http://185.246.64.43:8080/input/rest/npp_main/${id}`)
 
-                .then(response => response.json())
-                .then(response => {
-                    this.setState({
-                        report_id: response.main.report_id,
-                    })
+            .then(response => response.json())
+            .then(response => {
+                this.setState({
+                    report_id: response.main.report_id,
                 })
+            })
 
         if (url.indexOf('main') !== -1) {
             this.setState({
@@ -61,59 +61,67 @@ export default class HeaderEditNpp extends Component {
         const {page} = this.state
 
         return (
-            <div className='header'>
-                <div className="header-nav">
-                    <Logo/>
-                    <Radio.Group value={page} onChange={this.state.page} size='large'>
-                        <Radio.Button value='enter'>
-                            <NavLink to='/'>
-                                <ArrowLeftOutlined/> Система
-                                Ввода
-                            </NavLink>
-                        </Radio.Button>
+            <div>
+                <div className='header'>
+                    <div className="header-nav">
+                        <div className='logo'>
+                            <Logo/>
+                        </div>
+                        <Radio.Group value={page} onChange={this.state.page} size='large'>
+                            <Radio.Button value='enter'>
+                                <NavLink to='/'>
+                                    <ArrowLeftOutlined/> Система
+                                    Ввода
+                                </NavLink>
+                            </Radio.Button>
 
-                        <Radio.Button value='main'>
-                            <NavLink to={`/npp/main/${this.state.id}`}>
-                                Описание
-                            </NavLink>
-                        </Radio.Button>
+                            <Radio.Button value='main'>
+                                <NavLink to={`/npp/main/${this.state.id}`}>
+                                    Описание
+                                </NavLink>
+                            </Radio.Button>
 
-                        <Radio.Button value='chapters'>
-                            <NavLink to={`/npp/chapters/${this.state.id}`}>
-                                Разделы
-                            </NavLink>
-                        </Radio.Button>
+                            <Radio.Button value='chapters'>
+                                <NavLink to={`/npp/chapters/${this.state.id}`}>
+                                    Разделы
+                                </NavLink>
+                            </Radio.Button>
 
-                        <Radio.Button value='fields'>
-                            <NavLink to={`/npp/fields/${this.state.id}`}>
-                                Код. Карта
-                            </NavLink>
-                        </Radio.Button>
+                            <Radio.Button value='fields'>
+                                <NavLink to={`/npp/fields/${this.state.id}`}>
+                                    Код. Карта
+                                </NavLink>
+                            </Radio.Button>
 
-                        <Radio.Button value='anomal'>
-                            <NavLink to={`/npp/anomal/${this.state.id}`}>
-                                Аномальное событие
-                            </NavLink>
-                        </Radio.Button>
+                            <Radio.Button value='anomal'>
+                                <NavLink to={`/npp/anomal/${this.state.id}`}>
+                                    Аномальное событие
+                                </NavLink>
+                            </Radio.Button>
 
-                        <Radio.Button value='files'>
-                            <NavLink to={`/npp/files/${this.state.id}`}>
-                                Файлы
-                            </NavLink>
-                        </Radio.Button>
-                    </Radio.Group>
+                            <Radio.Button value='files'>
+                                <NavLink to={`/npp/files/${this.state.id}`}>
+                                    Файлы
+                                </NavLink>
+                            </Radio.Button>
+                        </Radio.Group>
+                    </div>
 
-                    <Button type="primary" ghost className='btn-avatar'>
-                        <Avatar size={20} icon={<UserOutlined/>}/>
-                        &nbsp; find
-                        <CaretDownOutlined/>
-                    </Button>
+                    <div className='btn-avatar'>
+                        <Avatar size={30} icon={<UserOutlined/>}/>
+                        <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
+                        {/*<CaretDownOutlined/>*/}
+                    </div>
                 </div>
-                <div className='edit-sh'><FileOutlined style={{fontSize: '25px', color: '#08c'}}/> Редактирование отчета
-                    о нарушении
+                <div className='edit'>
+                    <div className='edit-sh'><FileOutlined style={{fontSize: '25px', color: '#08c'}}/> Редактирование
+                        отчета
+                        о нарушении
+                    </div>
+                    <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
                 </div>
-                <div className='edit-sh-name'>Отчет {this.state.report_id}</div>
             </div>
+
 
         )
     }
