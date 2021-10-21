@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import {Tree, Collapse, Button} from 'antd';
+import {Tree, Collapse, Button, Space, DatePicker} from 'antd';
 import {CaretRightOutlined} from '@ant-design/icons'
 import Service from "../../services/service";
-
+import locale from "antd/es/date-picker/locale/ru_RU";
+import 'moment/locale/ru';
 
 const {Panel} = Collapse;
 
@@ -186,8 +187,15 @@ export default class TreeSidebar extends Component {
                         size='default'
                         onClick={this.fetchData}
                     >
-                        Отфильтровать
+                        Применить
                     </Button>
+                    <div><h4 className='filters-data'>Дата:</h4></div>
+                    <div className='date'>
+                        <Space direction="vertical">
+                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                        </Space>
+                    </div>
                 </div>
             </div>
         )

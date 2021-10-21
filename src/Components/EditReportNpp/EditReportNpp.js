@@ -209,7 +209,7 @@ Request Method: POST`, requestOptions)
                         </Form.Item>
 
                         <Form.Item label="">
-                            <Button type="primary" ghost onClick={this.fetchData}>Применить изменения</Button>
+                            <Button type="primary" ghost onClick={this.fetchData}>Применить</Button>
                         </Form.Item>
                     </Form>
                 </div>

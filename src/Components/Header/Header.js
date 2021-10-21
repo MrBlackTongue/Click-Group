@@ -70,12 +70,12 @@ export default class Header extends Component {
                             updateTasksFilter={this.props.updateTasksFilter}
                         />
                     </div>
-                    <div className='date'>
-                        <Space direction="horizontal">
-                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
-                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
-                        </Space>
-                    </div>
+                    {/*<div className='date'>*/}
+                    {/*    <Space direction="horizontal">*/}
+                    {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                    {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                    {/*    </Space>*/}
+                    {/*</div>*/}
                     <Button type="primary" ghost className='btn-avatar'>
                         <Avatar size={20} icon={<UserOutlined/>}/>
                         &nbsp; find

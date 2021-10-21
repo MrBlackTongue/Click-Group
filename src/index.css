@@ -158,6 +158,14 @@ th {
   margin-left: 10px;
 }
 
+.filters-data {
+  font-size: 20px;
+  max-height: 30px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 
 .ant-collapse-header {
   height: 30px;
