@@ -4,6 +4,8 @@ import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
 import Logo from "../Logo/Logo";
+import locale from 'antd/es/date-picker/locale/ru_RU';
+import 'moment/locale/ru';
 
 export default class Header extends Component {
     constructor(props) {
@@ -70,8 +72,8 @@ export default class Header extends Component {
                     </div>
                     <div className='date'>
                         <Space direction="horizontal">
-                            <DatePicker onChange={''} placeholder='Выберите месяц' className='data-picker'/>
-                            <DatePicker onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
+                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
                         </Space>
                     </div>
                     <Button type="primary" ghost className='btn-avatar'>
