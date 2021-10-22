@@ -65,7 +65,9 @@ export default class HeaderEditNpp extends Component {
                 <div className='header'>
                     <div className="header-nav">
                         <div className='logo'>
-                            <Logo/>
+                            <a href='/'>
+                                <Logo/>
+                            </a>
                         </div>
                         <Radio.Group value={page} onChange={this.state.page} size='large'>
                             <Radio.Button value='enter'>

@@ -58,7 +58,10 @@ export default class Header extends Component {
             <div className='header'>
                 <div className="site-page-header">
                     <div className='logo'>
-                        <Logo/>
+                        <a href='/'>
+                            <Logo/>
+
+                        </a>
                     </div>
                     {/*<Button type="primary" ghost>Система Ввода</Button>*/}
                     <div className='search-panel'>

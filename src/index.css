@@ -199,11 +199,12 @@ th {
 .btn-avatar {
   margin-left: auto;
   border: none !important;
+
 }
 
 .btn-avatar-name{
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 20px;
   color: #2c90ff;
 }
 
@@ -283,11 +284,6 @@ th {
   color: grey;
 }
 
-.svg {
-  width: 15%;
-  /*size: 3rem;*/
-  /*height: 30%;*/
-}
 
 .logo-report {
   display: flex;
@@ -297,6 +293,7 @@ th {
 .svg {
   width: 14rem;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .pagination {
