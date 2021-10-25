@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Space, Table, Button, Pagination} from 'antd';
+import {Space, Table, Button, Pagination, Spin} from 'antd';
 import {FormOutlined, RetweetOutlined, ArrowUpOutlined, DeleteOutlined, PlusOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 
@@ -11,7 +11,6 @@ export default class Content extends Component {
         this.state = {
             bottom: 'bottomCenter',
             data: [],
-            loading: false,
             report: [],
             index_text: [],
             id: [],
@@ -24,9 +23,12 @@ export default class Content extends Component {
             pageSize: 10,
             tasksFilter: '',
             plansFilter: '',
+            loading: false,
+
         }
 
     }
+
 
     componentDidMount() {
 
@@ -34,6 +36,7 @@ export default class Content extends Component {
 
 
     render() {
+
 
         const columns = [
             {
@@ -74,7 +77,7 @@ export default class Content extends Component {
             },
         ];
 
-        const {loading} = this.state
+        console.log('!loading', this.props.loading)
 
         return (
             <div className='content'>
@@ -89,61 +92,63 @@ export default class Content extends Component {
                         &nbsp;Добавить Отклонение
                     </Button>
                 </div>
-                <Table className='table' bordered
-                       columns={columns}
-                       dataSource={this.props.dataParentToChild}
-                       loading={loading}
-                       pagination={false}
-                       // pagination={{position: [this.state.bottom]}}
-                       onRow={(record) => {
-                           return {
-                               onDoubleClick: event => {
-                                   let name
+                <div>
+                    <Table className='table' bordered
+                           columns={columns}
+                           dataSource={this.props.dataParentToChild}
+                           loading={this.props.loading}
+                           pagination={false}
+                        // pagination={{position: [this.state.bottom]}}
+                           onRow={(record) => {
+                               return {
+                                   onDoubleClick: event => {
+                                       let name
 
-                                   if (record.filter_tasktype === 'Отклонения (Ввод)' || record.filter_tasktype === 'Отклонения (ОИСОЭ)') {
-                                       name = 'sh'
-                                   } else {
-                                       name = 'npp'
-                                   }
+                                       if (record.filter_tasktype === 'Отклонения (Ввод)' || record.filter_tasktype === 'Отклонения (ОИСОЭ)') {
+                                           name = 'sh'
+                                       } else {
+                                           name = 'npp'
+                                       }
 
-                                   fetch(`http://185.246.64.43:8080/input/rest/${name}_main/${record.main_id}`)
+                                       fetch(`http://185.246.64.43:8080/input/rest/${name}_main/${record.main_id}`)
 
-                                       .then(response => response.json())
-                                       .then(response => {
-                                           this.setState({
-                                               report: response.index,
-                                               index_text: response.index.index_text,
-                                               id: record.main_id
+                                           .then(response => response.json())
+                                           .then(response => {
+                                               this.setState({
+                                                   report: response.index,
+                                                   index_text: response.index.index_text,
+                                                   id: record.main_id
+                                               })
+
+                                               this.props.updateId(this.state.id)
+
                                            })
-
-                                           this.props.updateId(this.state.id)
-
-                                       })
-                                   window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
+                                       window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
+                                   }
                                }
+                            }
                            }
-                       }}
-                />
-                <Pagination
-                    className='pagination'
-                    total={this.props.totalParentToChild}
-                    current={this.props.num}
-                    pageSize={this.props.size}
-                    onChange={(num, size) => {
-                        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${num}&pageSize=${size}`)
-                            .then(response => response.json())
-                            .then(response => {
-                                this.setState({
-                                    data: response.rows,
+                    />
+                    <Pagination
+                        className='pagination'
+                        total={this.props.totalParentToChild}
+                        current={this.props.num}
+                        pageSize={this.props.size}
+                        onChange={(num, size) => {
+                            fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${num}&pageSize=${size}`)
+                                .then(response => response.json())
+                                .then(response => {
+                                    this.setState({
+                                        data: response.rows,
+                                    })
+                                    this.props.onChange(response.rows)
+                                    this.props.updatePageNum(num)
+                                    this.props.updatePageSize(size)
                                 })
-                                this.props.onChange(response.rows)
-                                this.props.updatePageNum(num)
-                                this.props.updatePageSize(size)
-
-                            })
-                    }
-                    }
-                />
+                             }
+                        }
+                    />
+                </div>
             </div>
         )
     }

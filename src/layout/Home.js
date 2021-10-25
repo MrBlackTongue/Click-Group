@@ -26,6 +26,7 @@ export default class Home extends React.Component {
             value: '',
             tasksFilter: '',
             plantsFilter: '',
+            loading: false,
         }
 
     }
@@ -85,6 +86,12 @@ export default class Home extends React.Component {
         })
     }
 
+    updateLoading = (value) => {
+        this.setState({
+            loading: value,
+        })
+    }
+
     render() {
         const {data, total, pageNum, pageSize} = this.state
 
@@ -112,6 +119,8 @@ export default class Home extends React.Component {
                                         updatePageSize={this.updatePageSize}
                                         updateTasksFilter={this.updateTasksFilter}
                                         updatePlantsFilter={this.updatePlantsFilter}
+                                        updateLoading={this.updateLoading}
+
                                     />
                                     <Content
                                         dataParentToChild={data}
@@ -127,6 +136,7 @@ export default class Home extends React.Component {
                                         updatePageSize={this.updatePageSize}
                                         updateTasksFilter={this.state.tasksFilter}
                                         updatePlantsFilter={this.state.plantsFilter}
+                                        loading={this.state.loading}
 
                                     />
                                 </div>

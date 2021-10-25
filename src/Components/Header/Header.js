@@ -53,7 +53,7 @@ export default class Header extends Component {
     }
 
     render() {
-        console.log('props', this.props.updatePlantsFilter)
+        // console.log('props', this.props.updatePlantsFilter)
         return (
             <div className='header'>
                 <div className="site-page-header">

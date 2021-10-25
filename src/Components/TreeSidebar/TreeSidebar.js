@@ -29,6 +29,7 @@ export default class TreeSidebar extends Component {
             total: '',
             pageNum: 1,
             pageSize: 10,
+            loading: false,
 
         }
     }
@@ -76,6 +77,7 @@ export default class TreeSidebar extends Component {
             .then(response => response.json())
             .then(response => {
                 this.setState({
+                    loading: false,
                     data: response.rows,
                     total: response.total,
 
@@ -84,6 +86,8 @@ export default class TreeSidebar extends Component {
                 this.props.updateTotal(this.state.total)
                 this.props.updatePageNum(this.state.pageNum)
                 this.props.updatePageSize(this.state.pageSize)
+                this.props.updateLoading(this.state.loading)
+                // console.log('loading', this.state.loading)
 
             })
     }
