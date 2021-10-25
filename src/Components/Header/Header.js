@@ -4,8 +4,7 @@ import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
 import Logo from "../Logo/Logo";
-// import locale from 'antd/es/date-picker/locale/ru_RU';
-// import 'moment/locale/ru';
+import png from '../../image/rosenergoatom_.png'
 
 export default class Header extends Component {
     constructor(props) {
@@ -63,18 +62,21 @@ export default class Header extends Component {
 
                         </a>
                     </div>
-                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
-                    <div className='search-panel'>
-                        <SearchPanel
-                            updateData={this.updateData}
-                            updateTotal={this.updateTotal}
-                            updatePageNum={this.updatePageNum}
-                            updatePageSize={this.updatePageSize}
-                            updateValue={this.updateValue}
-                            updatePlantsFilter={this.props.updatePlantsFilter}
-                            updateTasksFilter={this.props.updateTasksFilter}
-                        />
+                    <div>
+                        <img src={png} className='img-anal'/>
                     </div>
+                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
+                    {/*<div className='search-panel'>*/}
+                    {/*    <SearchPanel*/}
+                    {/*        updateData={this.updateData}*/}
+                    {/*        updateTotal={this.updateTotal}*/}
+                    {/*        updatePageNum={this.updatePageNum}*/}
+                    {/*        updatePageSize={this.updatePageSize}*/}
+                    {/*        updateValue={this.updateValue}*/}
+                    {/*        updatePlantsFilter={this.props.updatePlantsFilter}*/}
+                    {/*        updateTasksFilter={this.props.updateTasksFilter}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                     {/*<div className='date'>*/}
                     {/*    <Space direction="horizontal">*/}
                     {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
