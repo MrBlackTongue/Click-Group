@@ -1,10 +1,135 @@
 import React, {Component} from "react";
 import {UserOutlined, CaretDownOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
-import {Button, Avatar, DatePicker, Space} from 'antd';
+import {Button, Avatar, DatePicker, Space, Menu, Dropdown,} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
 import Logo from "../Logo/Logo";
 import png from '../../image/rosenergoatom_.png'
+
+const EOSDO = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Поиск документов
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Поручения
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                Статистика по документам
+            </a>
+        </Menu.Item>
+    </Menu>
+);
+
+const KS = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Обстановка на АЭС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Технологическая обстановка
+            </a>
+        </Menu.Item>
+    </Menu>
+);
+
+const ObAnal = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Нарушение в работе АЭС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Отказы и повреждения оборудования АЭС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                Отклонения на АЭС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                События низкого уровня
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                События низкого уровня (по АЭС)
+            </a>
+        </Menu.Item>
+    </Menu>
+);
+
+const Pokaz = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Дефекты
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Нарушения
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                Отклонения
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                СНУ
+            </a>
+        </Menu.Item>
+    </Menu>
+);
+
+const TOiR = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Ремонты - Показатели
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Ремонты - УОЭ
+            </a>
+        </Menu.Item>
+    </Menu>
+);
+
+const other = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                WEB ОИС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Корр. меры: ОКМ
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Кристализация знанний. Поис оборудования
+            </a>
+        </Menu.Item>
+    </Menu>
+);
 
 export default class Header extends Component {
     constructor(props) {
@@ -65,6 +190,32 @@ export default class Header extends Component {
                     <div>
                         <img src={png} className='img-anal'/>
                     </div>
+
+                    <div>
+                        <Space direction="vertical">
+                            <Space wrap>
+                                <Dropdown overlay={EOSDO} placement="bottomLeft" arrow>
+                                    <Button>ЕОСДО</Button>
+                                </Dropdown>
+                                <Dropdown overlay={KS} placement="bottomCenter" arrow>
+                                    <Button>КС ЦОПиУП</Button>
+                                </Dropdown>
+                                <Dropdown overlay={ObAnal} placement="bottomRight" arrow>
+                                    <Button>Общий анализ</Button>
+                                </Dropdown>
+                                <Dropdown overlay={Pokaz} placement="bottomRight" arrow>
+                                    <Button>Показатели</Button>
+                                </Dropdown>
+                                <Dropdown overlay={TOiR} placement="bottomRight" arrow>
+                                    <Button>ТОиР</Button>
+                                </Dropdown>
+                                <Dropdown overlay={other} placement="bottomRight" arrow>
+                                    <Button>Прочие</Button>
+                                </Dropdown>
+                            </Space>
+                        </Space>,
+                    </div>
+
                     {/*<Button type="primary" ghost>Система Ввода</Button>*/}
                     {/*<div className='search-panel'>*/}
                     {/*    <SearchPanel*/}
