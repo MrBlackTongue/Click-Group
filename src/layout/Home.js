@@ -112,33 +112,39 @@ export default class Home extends React.Component {
                                     updateTasksFilter={this.state.tasksFilter}
                                 />
                                 <div className='home-context-div'>
-                                    <TreeSidebar
-                                        updateData={this.updateData}
-                                        updateTotal={this.updateTotal}
-                                        updatePageNum={this.updatePageNum}
-                                        updatePageSize={this.updatePageSize}
-                                        updateTasksFilter={this.updateTasksFilter}
-                                        updatePlantsFilter={this.updatePlantsFilter}
-                                        updateLoading={this.updateLoading}
 
-                                    />
-                                    <Content
-                                        dataParentToChild={data}
-                                        updateId={this.updateId}
-                                        totalParentToChild={total}
-                                        pageNumParentToChild={pageNum}
-                                        pageSizeParentToChild={pageSize}
-                                        onChange={this.onChange}
-                                        num={this.state.pageNum}
-                                        size={this.state.pageSize}
-                                        value={this.state.value}
-                                        updatePageNum={this.updatePageNum}
-                                        updatePageSize={this.updatePageSize}
-                                        updateTasksFilter={this.state.tasksFilter}
-                                        updatePlantsFilter={this.state.plantsFilter}
-                                        loading={this.state.loading}
+                                    <div>
+                                        <iframe src="http://www.youtube.com/embed/xDMP3i36naA" height="500px" width="1000px"></iframe>
+                                    </div>
 
-                                    />
+
+
+                                    {/*<TreeSidebar*/}
+                                    {/*    updateData={this.updateData}*/}
+                                    {/*    updateTotal={this.updateTotal}*/}
+                                    {/*    updatePageNum={this.updatePageNum}*/}
+                                    {/*    updatePageSize={this.updatePageSize}*/}
+                                    {/*    updateTasksFilter={this.updateTasksFilter}*/}
+                                    {/*    updatePlantsFilter={this.updatePlantsFilter}*/}
+                                    {/*    updateLoading={this.updateLoading}*/}
+
+                                    {/*/>*/}
+                                    {/*<Content*/}
+                                    {/*    dataParentToChild={data}*/}
+                                    {/*    updateId={this.updateId}*/}
+                                    {/*    totalParentToChild={total}*/}
+                                    {/*    pageNumParentToChild={pageNum}*/}
+                                    {/*    pageSizeParentToChild={pageSize}*/}
+                                    {/*    onChange={this.onChange}*/}
+                                    {/*    num={this.state.pageNum}*/}
+                                    {/*    size={this.state.pageSize}*/}
+                                    {/*    value={this.state.value}*/}
+                                    {/*    updatePageNum={this.updatePageNum}*/}
+                                    {/*    updatePageSize={this.updatePageSize}*/}
+                                    {/*    updateTasksFilter={this.state.tasksFilter}*/}
+                                    {/*    updatePlantsFilter={this.state.plantsFilter}*/}
+                                    {/*    loading={this.state.loading}*/}
+                                    {/*/>*/}
                                 </div>
                             </div>
 
