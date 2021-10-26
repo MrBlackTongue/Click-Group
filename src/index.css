@@ -139,8 +139,8 @@ th {
 
 
 .header {
-  height: 140px;
-  border-bottom: #cbd5dc 1px solid;
+  height: 80px;
+  /*border-bottom: #cbd5dc 1px solid;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -313,4 +313,26 @@ th {
   margin-right: 0;
   margin-bottom: 8px;
   margin-left: 8px;
+}
+
+
+.menu {
+  border-bottom: #cbd5dc 1px solid;
+  /*height: 10px;*/
+  padding-left: 100px;
+  margin-bottom: 20px;
+  background-color: #2c90ff;
+  display: flex;
+  align-items: center;
+}
+
+.btn-menu {
+  background-color: #2c90ff !important;
+  color: white !important;
+  border: none !important;
+}
+
+.iframe {
+  width: 90rem;
+  height: 40rem;
 }

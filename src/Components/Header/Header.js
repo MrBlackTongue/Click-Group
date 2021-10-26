@@ -6,7 +6,7 @@ import SearchPanel from "../SearchPanel/SearchPanel";
 import Logo from "../Logo/Logo";
 import png from '../../image/rosenergoatom_.png'
 
-const EOSDO = (
+const violations = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
@@ -23,10 +23,30 @@ const EOSDO = (
                 Статистика по документам
             </a>
         </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                Дефекты
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Нарушения
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                Отклонения
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                СНУ
+            </a>
+        </Menu.Item>
     </Menu>
 );
 
-const KS = (
+const deviations = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
@@ -36,6 +56,21 @@ const KS = (
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
                 Технологическая обстановка
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                WEB ОИС
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Корр. меры: ОКМ
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                Кристализация знанний. Поис оборудования
             </a>
         </Menu.Item>
     </Menu>
@@ -68,31 +103,13 @@ const ObAnal = (
                 События низкого уровня (по АЭС)
             </a>
         </Menu.Item>
+
     </Menu>
 );
 
 const Pokaz = (
     <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Дефекты
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Нарушения
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Отклонения
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                СНУ
-            </a>
-        </Menu.Item>
+
     </Menu>
 );
 
@@ -113,21 +130,7 @@ const TOiR = (
 
 const other = (
     <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                WEB ОИС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Корр. меры: ОКМ
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Кристализация знанний. Поис оборудования
-            </a>
-        </Menu.Item>
+
     </Menu>
 );
 
@@ -179,67 +182,60 @@ export default class Header extends Component {
     render() {
         // console.log('props', this.props.updatePlantsFilter)
         return (
-            <div className='header'>
-                <div className="site-page-header">
-                    <div className='logo'>
-                        <a href='/'>
-                            <Logo/>
+            <div>
+                <div className='header'>
+                    <div className="site-page-header">
+                        <div className='logo'>
+                            <a href='/'>
+                                <Logo/>
 
-                        </a>
+                            </a>
+                        </div>
+                        <div>
+                            <img src={png} className='img-anal'/>
+                        </div>
+
+
+                        {/*<Button type="primary" ghost>Система Ввода</Button>*/}
+                        {/*<div className='search-panel'>*/}
+                        {/*    <SearchPanel*/}
+                        {/*        updateData={this.updateData}*/}
+                        {/*        updateTotal={this.updateTotal}*/}
+                        {/*        updatePageNum={this.updatePageNum}*/}
+                        {/*        updatePageSize={this.updatePageSize}*/}
+                        {/*        updateValue={this.updateValue}*/}
+                        {/*        updatePlantsFilter={this.props.updatePlantsFilter}*/}
+                        {/*        updateTasksFilter={this.props.updateTasksFilter}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
+                        {/*<div className='date'>*/}
+                        {/*    <Space direction="horizontal">*/}
+                        {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                        {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                        {/*    </Space>*/}
+                        {/*</div>*/}
+
                     </div>
-                    <div>
-                        <img src={png} className='img-anal'/>
+                    <div className='btn-avatar'>
+                        <Avatar size={30} icon={<UserOutlined/>}/>
+                        <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
+                        {/*<CaretDownOutlined/>*/}
                     </div>
-
-                    <div>
-                        <Space direction="vertical">
-                            <Space wrap>
-                                <Dropdown overlay={EOSDO} placement="bottomLeft" arrow>
-                                    <Button>ЕОСДО</Button>
-                                </Dropdown>
-                                <Dropdown overlay={KS} placement="bottomCenter" arrow>
-                                    <Button>КС ЦОПиУП</Button>
-                                </Dropdown>
-                                <Dropdown overlay={ObAnal} placement="bottomRight" arrow>
-                                    <Button>Общий анализ</Button>
-                                </Dropdown>
-                                <Dropdown overlay={Pokaz} placement="bottomRight" arrow>
-                                    <Button>Показатели</Button>
-                                </Dropdown>
-                                <Dropdown overlay={TOiR} placement="bottomRight" arrow>
-                                    <Button>ТОиР</Button>
-                                </Dropdown>
-                                <Dropdown overlay={other} placement="bottomRight" arrow>
-                                    <Button>Прочие</Button>
-                                </Dropdown>
-                            </Space>
-                        </Space>,
-                    </div>
-
-                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
-                    {/*<div className='search-panel'>*/}
-                    {/*    <SearchPanel*/}
-                    {/*        updateData={this.updateData}*/}
-                    {/*        updateTotal={this.updateTotal}*/}
-                    {/*        updatePageNum={this.updatePageNum}*/}
-                    {/*        updatePageSize={this.updatePageSize}*/}
-                    {/*        updateValue={this.updateValue}*/}
-                    {/*        updatePlantsFilter={this.props.updatePlantsFilter}*/}
-                    {/*        updateTasksFilter={this.props.updateTasksFilter}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-                    {/*<div className='date'>*/}
-                    {/*    <Space direction="horizontal">*/}
-                    {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
-                    {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
-                    {/*    </Space>*/}
-                    {/*</div>*/}
-
                 </div>
-                <div className='btn-avatar'>
-                    <Avatar size={30} icon={<UserOutlined/>}/>
-                    <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
-                    {/*<CaretDownOutlined/>*/}
+                <div className='menu'>
+                    <Space direction="vertical">
+                        <Space wrap>
+                            <Dropdown overlay={violations} placement="bottomLeft" arrow>
+                                <Button className='btn-menu'>Нарушения</Button>
+                            </Dropdown>
+                            <Dropdown overlay={deviations} placement="bottomCenter" arrow>
+                                <Button className='btn-menu'>Отклонения</Button>
+                            </Dropdown>
+                            <Dropdown overlay={TOiR} placement="bottomRight" arrow>
+                                <Button className='btn-menu'>ТОиР</Button>
+                            </Dropdown>
+                        </Space>
+                    </Space>
                 </div>
             </div>
         )
