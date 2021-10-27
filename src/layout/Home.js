@@ -171,7 +171,83 @@ export default class Home extends React.Component {
                                 // theme="dark"
                                 inlineCollapsed={this.state.collapsed}
                             >
-                                {/*<Menu.Item key="1" icon={<PieChartOutlined/>}>*/}
+
+                                {/*<Menu.Itemkey="1"icon={<PieChartOutlined/>}>*/}
+                                {/*Option1*/}
+                                {/*</Menu.Item>*/}
+                                {/*<Menu.Itemkey="2"icon={<DesktopOutlined/>}>*/}
+                                {/*Option2*/}
+                                {/*</Menu.Item>*/}
+                                {/*<Menu.Itemkey="3"icon={<ContainerOutlined/>}>*/}
+                                {/*Option3*/}
+                                {/*</Menu.Item>*/}
+                                <SubMenu key="sub1" icon={<MailOutlined/>} title="Создать" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer"href="https://www.antgroup.com">
+                                            Реестр ФНП
+                                        </a>
+                                    </Menu.Item>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            ФНП для ОИАЭ
+                                        </a>
+                                    </Menu.Item>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.luohanacademy.com">
+                                            Реестр несоответствий для ОИАЭ
+                                        </a>
+                                    </Menu.Item>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.antgroup.com">
+                                            Оценка влияния на безопасность
+                                        </a>
+                                    </Menu.Item>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Мероприятия
+                                        </a>
+                                    </Menu.Item>
+                                </SubMenu>
+
+                                <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Реестр ФНП
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            ФНП для ОИАЭ
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Реестр несоответствий для ОИАЭ
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Оценка влияния на безопасность
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Мероприятия
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                            </Menu>
+
+
+                        {/*<Menu.Item key="1" icon={<PieChartOutlined/>}>*/}
                                 {/*    Option 1*/}
                                 {/*</Menu.Item>*/}
                                 {/*<Menu.Item key="2" icon={<DesktopOutlined/>}>*/}
@@ -180,86 +256,86 @@ export default class Home extends React.Component {
                                 {/*<Menu.Item key="3" icon={<ContainerOutlined/>}>*/}
                                 {/*    Option 3*/}
                                 {/*</Menu.Item>*/}
-                                <SubMenu key="sub1" icon={<MailOutlined/>} title="Нарушения" className='submenu'>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                                            Поиск документов
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Поручения
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer"
-                                           href="https://www.luohanacademy.com">
-                                            Статистика по документам
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                                            Дефекты
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Нарушения
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer"
-                                           href="https://www.luohanacademy.com">
-                                            Отклонения
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer"
-                                           href="https://www.luohanacademy.com">
-                                            СНУ
-                                        </a>
-                                    </Menu.Item>
-                                </SubMenu>
-                                <SubMenu key="sub2" icon={<AppstoreOutlined/>} title="Отклонения" className='submenu'>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                                            Обстановка на АЭС
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Технологическая обстановка
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                                            WEB ОИС
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Корр. меры: ОКМ
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Кристализация знанний. Поис оборудования
-                                        </a>
-                                    </Menu.Item>
-                                </SubMenu>
-                                <SubMenu key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                                            Ремонты - Показатели
-                                        </a>
-                                    </Menu.Item>
-                                    <Menu.Item className='menu-item'>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                                            Ремонты - УОЭ
-                                        </a>
-                                    </Menu.Item>
-                                </SubMenu>
-                            </Menu>`
+                                {/*<SubMenu key="sub1" icon={<MailOutlined/>} title="Нарушения" className='submenu'>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">*/}
+                                {/*            Поиск документов*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Поручения*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer"*/}
+                                {/*           href="https://www.luohanacademy.com">*/}
+                                {/*            Статистика по документам*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">*/}
+                                {/*            Дефекты*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Нарушения*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer"*/}
+                                {/*           href="https://www.luohanacademy.com">*/}
+                                {/*            Отклонения*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer"*/}
+                                {/*           href="https://www.luohanacademy.com">*/}
+                                {/*            СНУ*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*</SubMenu>*/}
+                                {/*<SubMenu key="sub2" icon={<AppstoreOutlined/>} title="Отклонения" className='submenu'>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">*/}
+                                {/*            Обстановка на АЭС*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Технологическая обстановка*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">*/}
+                                {/*            WEB ОИС*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Корр. меры: ОКМ*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Кристализация знанний. Поис оборудования*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*</SubMenu>*/}
+                                {/*<SubMenu key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">*/}
+                                {/*            Ремонты - Показатели*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*    <Menu.Item className='menu-item'>*/}
+                                {/*        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">*/}
+                                {/*            Ремонты - УОЭ*/}
+                                {/*        </a>*/}
+                                {/*    </Menu.Item>*/}
+                                {/*</SubMenu>*/}
+                            {/*</Menu>`*/}
                         </div>
 
 
@@ -271,7 +347,8 @@ export default class Home extends React.Component {
                         {/*                <div className='home-context-div'>*/}
 
                         <div>
-                            <iframe src="https://10.113.17.65:5070/r/16" className='iframe'></iframe>
+                            <iframe src="http://www.youtube.com/embed/xDMP3i36naA" className='iframe'></iframe>
+                            {/*<iframe src="https://10.113.17.65:5070/r/16" className='iframe'></iframe>*/}
                         </div>
                     </div>
 

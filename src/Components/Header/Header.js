@@ -192,7 +192,8 @@ export default class Header extends Component {
                             </a>
                         </div>
                         <div>
-                            <img src={png} className='img-anal'/>
+                            <h2>Несоответствия в федеральных нормах и правилах</h2>
+                            {/*<img src={png} className='img-anal'/>*/}
                         </div>
 
 
