@@ -10,129 +10,93 @@ const violations = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Поиск документов
+                Реестр ФНП
             </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Поручения
+                ФНП для ОИАЭ
             </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Статистика по документам
+                Реестр несоответствий для ОИАЭ
             </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Дефекты
+                Оценка влияния на безопасность
             </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Нарушения
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Отклонения
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                СНУ
+                Мероприятия
             </a>
         </Menu.Item>
     </Menu>
 );
+//
+// const deviations = (
+//     <Menu>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+//                 Обстановка на АЭС
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+//                 Технологическая обстановка
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+//                 WEB ОИС
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+//                 Корр. меры: ОКМ
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+//                 Кристализация знанний. Поис оборудования
+//             </a>
+//         </Menu.Item>
+//     </Menu>
+// );
 
-const deviations = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Обстановка на АЭС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Технологическая обстановка
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                WEB ОИС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Корр. меры: ОКМ
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Кристализация знанний. Поис оборудования
-            </a>
-        </Menu.Item>
-    </Menu>
-);
+// const ObAnal = (
+//     <Menu>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+//                 Нарушение в работе АЭС
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+//                 Отказы и повреждения оборудования АЭС
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+//                 Отклонения на АЭС
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+//                 События низкого уровня
+//             </a>
+//         </Menu.Item>
+//         <Menu.Item>
+//             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+//                 События низкого уровня (по АЭС)
+//             </a>
+//         </Menu.Item>
+//
+//     </Menu>
+// );
 
-const ObAnal = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Нарушение в работе АЭС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Отказы и повреждения оборудования АЭС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Отклонения на АЭС
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                События низкого уровня
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                События низкого уровня (по АЭС)
-            </a>
-        </Menu.Item>
-
-    </Menu>
-);
-
-const Pokaz = (
-    <Menu>
-
-    </Menu>
-);
-
-const TOiR = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Ремонты - Показатели
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                Ремонты - УОЭ
-            </a>
-        </Menu.Item>
-    </Menu>
-);
-
-const other = (
-    <Menu>
-
-    </Menu>
-);
 
 export default class Header extends Component {
     constructor(props) {
@@ -192,7 +156,8 @@ export default class Header extends Component {
                             </a>
                         </div>
                         <div>
-                            <img src={png} className='img-anal'/>
+                            <h2>Несоответствия в федеральных нормах и правилах</h2>
+                            {/*<img src={png} className='img-anal'/>*/}
                         </div>
 
 
@@ -226,14 +191,13 @@ export default class Header extends Component {
                     <Space direction="vertical">
                         <Space wrap>
                             <Dropdown overlay={violations} placement="bottomLeft" arrow>
-                                <Button className='btn-menu'>Нарушения</Button>
+                                <Button>Создать</Button>
                             </Dropdown>
-                            <Dropdown overlay={deviations} placement="bottomCenter" arrow>
-                                <Button className='btn-menu'>Отклонения</Button>
-                            </Dropdown>
-                            <Dropdown overlay={TOiR} placement="bottomRight" arrow>
-                                <Button className='btn-menu'>ТОиР</Button>
-                            </Dropdown>
+                            <Button className='btn-menu'>Реестр ФНП</Button>
+                            <Button className='btn-menu'>ФНП для ОИАЭ</Button>
+                            <Button className='btn-menu'>Реестр несоответствий для ОИАЭ</Button>
+                            <Button className='btn-menu'>Оценка влияния на безопасность</Button>
+                            <Button className='btn-menu'>Мероприятия</Button>
                         </Space>
                     </Space>
                 </div>

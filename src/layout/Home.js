@@ -114,7 +114,8 @@ export default class Home extends React.Component {
                                 <div className='home-context-div'>
 
                                     <div>
-                                        <iframe src="https://10.113.17.65:5070/r/16" className='iframe'></iframe>
+                                        <iframe src="http://www.youtube.com/embed/xDMP3i36naA" className='iframe'></iframe>
+                                        {/*<iframe src="https://10.113.17.65:5070/r/16" className='iframe'></iframe>*/}
                                     </div>
 
 
