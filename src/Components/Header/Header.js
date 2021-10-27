@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {UserOutlined, CaretDownOutlined} from '@ant-design/icons'
+import {UserOutlined, CaretDownOutlined, BellOutlined, SnippetsOutlined} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space, Menu, Dropdown,} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
@@ -10,7 +10,7 @@ const violations = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                Реестр ФНП
+                ФНП
             </a>
         </Menu.Item>
         <Menu.Item>
@@ -20,7 +20,7 @@ const violations = (
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Реестр несоответствий для ОИАЭ
+                Несоответствий для ОИАЭ
             </a>
         </Menu.Item>
         <Menu.Item>
@@ -156,7 +156,7 @@ export default class Header extends Component {
                             </a>
                         </div>
                         <div>
-                            <h2>Несоответствия в федеральных нормах и правилах</h2>
+                            <h2>УПРАВЛЕНИЕ НЕСООТВЕТСТВИЯМИ НД</h2>
                             {/*<img src={png} className='img-anal'/>*/}
                         </div>
 
@@ -182,8 +182,9 @@ export default class Header extends Component {
 
                     </div>
                     <div className='btn-avatar'>
+                        <BellOutlined style={{ fontSize: '20px' }}/> &nbsp;
                         <Avatar size={30} icon={<UserOutlined/>}/>
-                        <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
+                        <span className='btn-avatar-name'> Дмитрий Иванов <CaretDownOutlined/></span>
                         {/*<CaretDownOutlined/>*/}
                     </div>
                 </div>
@@ -198,6 +199,7 @@ export default class Header extends Component {
                             <Button className='btn-menu'>Реестр несоответствий для ОИАЭ</Button>
                             <Button className='btn-menu'>Оценка влияния на безопасность</Button>
                             <Button className='btn-menu'>Мероприятия</Button>
+                            <Button className='btn-menu'><SnippetsOutlined/>Мои задачи</Button>
                         </Space>
                     </Space>
                 </div>
