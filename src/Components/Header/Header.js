@@ -222,21 +222,21 @@ export default class Header extends Component {
                         {/*<CaretDownOutlined/>*/}
                     </div>
                 </div>
-                <div className='menu'>
-                    <Space direction="vertical">
-                        <Space wrap>
-                            <Dropdown overlay={violations} placement="bottomLeft" arrow>
-                                <Button className='btn-menu'>Нарушения</Button>
-                            </Dropdown>
-                            <Dropdown overlay={deviations} placement="bottomCenter" arrow>
-                                <Button className='btn-menu'>Отклонения</Button>
-                            </Dropdown>
-                            <Dropdown overlay={TOiR} placement="bottomRight" arrow>
-                                <Button className='btn-menu'>ТОиР</Button>
-                            </Dropdown>
-                        </Space>
-                    </Space>
-                </div>
+                {/*<div className='menu'>*/}
+                {/*    <Space direction="vertical">*/}
+                {/*        <Space wrap>*/}
+                {/*            <Dropdown overlay={violations} placement="bottomLeft" arrow>*/}
+                {/*                <Button className='btn-menu'>Нарушения</Button>*/}
+                {/*            </Dropdown>*/}
+                {/*            <Dropdown overlay={deviations} placement="bottomCenter" arrow>*/}
+                {/*                <Button className='btn-menu'>Отклонения</Button>*/}
+                {/*            </Dropdown>*/}
+                {/*            <Dropdown overlay={TOiR} placement="bottomRight" arrow>*/}
+                {/*                <Button className='btn-menu'>ТОиР</Button>*/}
+                {/*            </Dropdown>*/}
+                {/*        </Space>*/}
+                {/*    </Space>*/}
+                {/*</div>*/}
             </div>
         )
     }
