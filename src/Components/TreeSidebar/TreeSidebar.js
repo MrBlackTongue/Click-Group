@@ -1,11 +1,22 @@
 import React, {Component} from "react";
-import {Tree, Collapse, Button, Space, DatePicker} from 'antd';
+import {Tree, Collapse, Button, Space, DatePicker, Menu} from 'antd';
 import {CaretRightOutlined} from '@ant-design/icons'
 import Service from "../../services/service";
 import locale from "antd/es/date-picker/locale/ru_RU";
 import 'moment/locale/ru';
+import {
+    AppstoreOutlined,
+    MenuUnfoldOutlined,
+    MenuFoldOutlined,
+    PieChartOutlined,
+    DesktopOutlined,
+    ContainerOutlined,
+    MailOutlined,
+    SnippetsOutlined,
+} from '@ant-design/icons';
 
 const {Panel} = Collapse;
+const {SubMenu} = Menu;
 
 export default class TreeSidebar extends Component {
     constructor(props) {
@@ -160,47 +171,147 @@ export default class TreeSidebar extends Component {
 
         return (
             <div className='sidebar'>
-                <div className='treeSidebar'>
-                    <div><h4 className='filters'>Фильтры:</h4></div>
-                    <Collapse ghost expandIcon={
-                        ({isActive}) =>
-                            <CaretRightOutlined rotate={isActive ? 90 : 0}/>
-                    }>
-                        <Panel header="Станции" key="1">
-                            <Tree
-                                checkable
-                                // onSelect={onSelect}
-                                onCheck={this.onCheckPlants}
-                                treeData={this.state.plants}
-                                defaultExpandAll
-                            />
-                        </Panel>
-                        <Panel header="Задачи" key="2">
-                            <Tree
-                                checkable
-                                // onSelect={onSelect}
-                                onCheck={this.onCheckTasks}
-                                treeData={this.state.tasks}
-                            />
-                        </Panel>
-                    </Collapse>
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                        onClick={this.fetchData}
-                    >
-                        Применить
-                    </Button>
-                    <div><h4 className='filters-data'>Дата:</h4></div>
-                    <div className='date'>
-                        <Space direction="vertical">
-                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
-                            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>
-                        </Space>
-                    </div>
-                </div>
+
+                <Menu
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    mode="inline"
+                    // theme="dark"
+                    inlineCollapsed={this.state.collapsed}
+                >
+
+                    {/*<Menu.Itemkey="1"icon={<PieChartOutlined/>}>*/}
+                    {/*Option1*/}
+                    {/*</Menu.Item>*/}
+                    {/*<Menu.Itemkey="2"icon={<DesktopOutlined/>}>*/}
+                    {/*Option2*/}
+                    {/*</Menu.Item>*/}
+                    {/*<Menu.Itemkey="3"icon={<ContainerOutlined/>}>*/}
+                    {/*Option3*/}
+                    {/*</Menu.Item>*/}
+                    <SubMenu key="sub1" icon={<MailOutlined/>} title="Создать" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer"href="https://www.antgroup.com">
+                                ФНП
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                ФНП для ОИАЭ
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.luohanacademy.com">
+                                Несоответствий для ОИАЭ
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.antgroup.com">
+                                Оценка влияния на безопасность
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Мероприятия
+                            </a>
+                        </Menu.Item>
+                    </SubMenu>
+                </Menu>
+
+                <div className='div-br'></div>
+                <Menu
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    mode="inline"
+                    // theme="dark"
+                >
+                    <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Реестр ФНП
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                    <Menu.Item key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                ФНП для ОИАЭ
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                    <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Реестр несоответствий для ОИАЭ
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                    <Menu.Item key="sub3" icon={<MailOutlined/>} title="ТОиР" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Оценка влияния на безопасность
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                    <Menu.Item key="sub2" icon={<AppstoreOutlined/>} title="РеестрФНП" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Мероприятия
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                    <Menu.Item key="sub2" icon={<SnippetsOutlined/>} title="РеестрФНП" className='submenu'>
+                        <Menu.Item className='menu-item'>
+                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                Мои задачи
+                            </a>
+                        </Menu.Item>
+                    </Menu.Item>
+                </Menu>
+
+
+
+                {/*<div className='treeSidebar'>*/}
+                {/*    <div><h4 className='filters'>Фильтры:</h4></div>*/}
+                {/*    <Collapse ghost expandIcon={*/}
+                {/*        ({isActive}) =>*/}
+                {/*            <CaretRightOutlined rotate={isActive ? 90 : 0}/>*/}
+                {/*    }>*/}
+                {/*        <Panel header="Станции" key="1">*/}
+                {/*            <Tree*/}
+                {/*                checkable*/}
+                {/*                // onSelect={onSelect}*/}
+                {/*                onCheck={this.onCheckPlants}*/}
+                {/*                treeData={this.state.plants}*/}
+                {/*                defaultExpandAll*/}
+                {/*            />*/}
+                {/*        </Panel>*/}
+                {/*        <Panel header="Задачи" key="2">*/}
+                {/*            <Tree*/}
+                {/*                checkable*/}
+                {/*                // onSelect={onSelect}*/}
+                {/*                onCheck={this.onCheckTasks}*/}
+                {/*                treeData={this.state.tasks}*/}
+                {/*            />*/}
+                {/*        </Panel>*/}
+                {/*    </Collapse>*/}
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*        onClick={this.fetchData}*/}
+                {/*    >*/}
+                {/*        Применить*/}
+                {/*    </Button>*/}
+                {/*    <div><h4 className='filters-data'>Дата:</h4></div>*/}
+                {/*    <div className='date'>*/}
+                {/*        <Space direction="vertical">*/}
+                {/*            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                {/*            <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}
+                {/*        </Space>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         )
     }

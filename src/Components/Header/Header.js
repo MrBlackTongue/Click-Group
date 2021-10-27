@@ -63,18 +63,22 @@ export default class Header extends Component {
 
                         </a>
                     </div>
-                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
-                    <div className='search-panel'>
-                        <SearchPanel
-                            updateData={this.updateData}
-                            updateTotal={this.updateTotal}
-                            updatePageNum={this.updatePageNum}
-                            updatePageSize={this.updatePageSize}
-                            updateValue={this.updateValue}
-                            updatePlantsFilter={this.props.updatePlantsFilter}
-                            updateTasksFilter={this.props.updateTasksFilter}
-                        />
+                    <div>
+                        <h2>УПРАВЛЕНИЕ НЕСООТВЕТСТВИЯМИ НД</h2>
                     </div>
+
+                    {/*<Button type="primary" ghost>Система Ввода</Button>*/}
+                    {/*<div className='search-panel'>*/}
+                    {/*    <SearchPanel*/}
+                    {/*        updateData={this.updateData}*/}
+                    {/*        updateTotal={this.updateTotal}*/}
+                    {/*        updatePageNum={this.updatePageNum}*/}
+                    {/*        updatePageSize={this.updatePageSize}*/}
+                    {/*        updateValue={this.updateValue}*/}
+                    {/*        updatePlantsFilter={this.props.updatePlantsFilter}*/}
+                    {/*        updateTasksFilter={this.props.updateTasksFilter}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                     {/*<div className='date'>*/}
                     {/*    <Space direction="horizontal">*/}
                     {/*        <DatePicker locale={locale} onChange={''} placeholder='Выберите месяц' className='data-picker'/>*/}

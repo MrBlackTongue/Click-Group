@@ -33,12 +33,12 @@ html * {
   margin-top: 10px;
 }
 
-/*.div-br {*/
-/*  border-bottom: 1px solid gainsboro;*/
-/*  !*width: 100px;*!*/
-/*  margin-bottom: 10px;*/
-/*  margin-top: 10px;*/
-/*}*/
+.div-br {
+  border-bottom: 2px solid gainsboro;
+  /*width: 100px;*/
+  /*margin-bottom: 10px;*/
+  /*margin-top: 10px;*/
+}
 
 .button-orange {
   color: orange !important;
@@ -126,7 +126,9 @@ html * {
 .content {
   margin: 10px 20px;
   width: 100%;
-
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 4px;
 }
 
 .ant-pagination.ant-table-pagination.ant-table-pagination-right {
@@ -139,7 +141,7 @@ th {
 
 
 .header {
-  height: 140px;
+  height: 100px;
   border-bottom: #cbd5dc 1px solid;
   display: flex;
   align-items: center;
@@ -298,4 +300,9 @@ th {
 
 .pagination {
   margin-top: 20px !important;
+}
+
+
+.home-context-div {
+  background-color: #f7f7f7;
 }

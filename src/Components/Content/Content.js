@@ -81,17 +81,17 @@ export default class Content extends Component {
 
         return (
             <div className='content'>
-                <div className='bottoms-add'>
-                    <Button type="primary" danger className="button-red" ghost size="large">
-                        <PlusOutlined/>
-                        &nbsp;Добавить Нарушение
-                    </Button>
-                    {/*<div className='div-br'/>*/}
-                    <Button type="primary" danger className="button-orange" ghost size="large">
-                        <PlusOutlined/>
-                        &nbsp;Добавить Отклонение
-                    </Button>
-                </div>
+                {/*<div className='bottoms-add'>*/}
+                {/*    <Button type="primary" danger className="button-red" ghost size="large">*/}
+                {/*        <PlusOutlined/>*/}
+                {/*        &nbsp;Добавить Нарушение*/}
+                {/*    </Button>*/}
+                {/*    /!*<div className='div-br'/>*!/*/}
+                {/*    <Button type="primary" danger className="button-orange" ghost size="large">*/}
+                {/*        <PlusOutlined/>*/}
+                {/*        &nbsp;Добавить Отклонение*/}
+                {/*    </Button>*/}
+                {/*</div>*/}
                 <div>
                     <Table className='table' bordered
                            columns={columns}
@@ -101,30 +101,30 @@ export default class Content extends Component {
                         // pagination={{position: [this.state.bottom]}}
                            onRow={(record) => {
                                return {
-                                   onDoubleClick: event => {
-                                       let name
-
-                                       if (record.filter_tasktype === 'Отклонения (Ввод)' || record.filter_tasktype === 'Отклонения (ОИСОЭ)') {
-                                           name = 'sh'
-                                       } else {
-                                           name = 'npp'
-                                       }
-
-                                       fetch(`http://185.246.64.43:8080/input/rest/${name}_main/${record.main_id}`)
-
-                                           .then(response => response.json())
-                                           .then(response => {
-                                               this.setState({
-                                                   report: response.index,
-                                                   index_text: response.index.index_text,
-                                                   id: record.main_id
-                                               })
-
-                                               this.props.updateId(this.state.id)
-
-                                           })
-                                       window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
-                                   }
+                                   // onDoubleClick: event => {
+                                   //     let name
+                                   //
+                                   //     if (record.filter_tasktype === 'Отклонения (Ввод)' || record.filter_tasktype === 'Отклонения (ОИСОЭ)') {
+                                   //         name = 'sh'
+                                   //     } else {
+                                   //         name = 'npp'
+                                   //     }
+                                   //
+                                   //     fetch(`http://185.246.64.43:8080/input/rest/${name}_main/${record.main_id}`)
+                                   //
+                                   //         .then(response => response.json())
+                                   //         .then(response => {
+                                   //             this.setState({
+                                   //                 report: response.index,
+                                   //                 index_text: response.index.index_text,
+                                   //                 id: record.main_id
+                                   //             })
+                                   //
+                                   //             this.props.updateId(this.state.id)
+                                   //
+                                   //         })
+                                   //     window.location.href = `http://localhost:3000/${name}/main/${record.main_id}`
+                                   // }
                                }
                             }
                            }
