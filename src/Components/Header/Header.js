@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {UserOutlined, CaretDownOutlined} from '@ant-design/icons'
+import {UserOutlined, CaretDownOutlined, BellOutlined } from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import {Button, Avatar, DatePicker, Space, Menu, Dropdown,} from 'antd';
 import SearchPanel from "../SearchPanel/SearchPanel";
@@ -192,7 +192,7 @@ export default class Header extends Component {
                             </a>
                         </div>
                         <div>
-                            <h2>Несоответствия в федеральных нормах и правилах</h2>
+                            <h2>УПРАВЛЕНИЕ НЕСООТВЕТСТВИЯМИ НД</h2>
                             {/*<img src={png} className='img-anal'/>*/}
                         </div>
 
@@ -218,8 +218,9 @@ export default class Header extends Component {
 
                     </div>
                     <div className='btn-avatar'>
+                        <BellOutlined style={{ fontSize: '20px' }}/> &nbsp;
                         <Avatar size={30} icon={<UserOutlined/>}/>
-                        <span className='btn-avatar-name'> find <CaretDownOutlined/></span>
+                        <span className='btn-avatar-name'> Дмитрий Иванов <CaretDownOutlined/></span>
                         {/*<CaretDownOutlined/>*/}
                     </div>
                 </div>

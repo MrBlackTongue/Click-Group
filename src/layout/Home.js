@@ -17,6 +17,7 @@ import {
     DesktopOutlined,
     ContainerOutlined,
     MailOutlined,
+    SnippetsOutlined,
 } from '@ant-design/icons';
 
 const {SubMenu} = Menu;
@@ -184,7 +185,7 @@ export default class Home extends React.Component {
                                 <SubMenu key="sub1" icon={<MailOutlined/>} title="Создать" className='submenu'>
                                     <Menu.Item className='menu-item'>
                                         <a target="_blank" rel="noopenernoreferrer"href="https://www.antgroup.com">
-                                            Реестр ФНП
+                                            ФНП
                                         </a>
                                     </Menu.Item>
                                     <Menu.Item className='menu-item'>
@@ -194,7 +195,7 @@ export default class Home extends React.Component {
                                     </Menu.Item>
                                     <Menu.Item className='menu-item'>
                                         <a target="_blank" rel="noopenernoreferrer" href="https://www.luohanacademy.com">
-                                            Реестр несоответствий для ОИАЭ
+                                            Несоответствий для ОИАЭ
                                         </a>
                                     </Menu.Item>
                                     <Menu.Item className='menu-item'>
@@ -241,6 +242,13 @@ export default class Home extends React.Component {
                                     <Menu.Item className='menu-item'>
                                         <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
                                             Мероприятия
+                                        </a>
+                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item key="sub2" icon={<SnippetsOutlined/>} title="РеестрФНП" className='submenu'>
+                                    <Menu.Item className='menu-item'>
+                                        <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
+                                            Мои задачи
                                         </a>
                                     </Menu.Item>
                                 </Menu.Item>
