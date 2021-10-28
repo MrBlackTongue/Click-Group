@@ -29,8 +29,9 @@ html * {
 
 .button-ghost {
   position: relative;
-  left: 15%;
+  left: 10%;
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .div-br {
@@ -207,7 +208,7 @@ th {
 .btn-avatar-name{
   margin-left: 5px;
   margin-right: 20px;
-  color: #2c90ff;
+  color: darkblue;
 }
 
 .edit-report-sh {
@@ -305,4 +306,9 @@ th {
 
 .home-context-div {
   background-color: #f7f7f7;
+}
+
+.create-btn {
+  background-color: white;
+  padding-bottom: 5px;
 }

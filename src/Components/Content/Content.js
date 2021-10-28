@@ -77,6 +77,18 @@ export default class Content extends Component {
             },
         ];
 
+        const data = [];
+        for (let i = 1; i < 30; i++) {
+            data.push({
+                key: i,
+                create_user: `Edward King`,
+                main_id: `${i}`,
+                name: `London, Park Lane no. ${i}`,
+                create_date: `${i}.10.2021`,
+                filter_tasktype: 'Read'
+            });
+        }
+
         console.log('!loading', this.props.loading)
 
         return (
@@ -95,9 +107,11 @@ export default class Content extends Component {
                 <div>
                     <Table className='table' bordered
                            columns={columns}
-                           dataSource={this.props.dataParentToChild}
+                           dataSource={data}
+                           // dataSource={this.props.dataParentToChild}
                            loading={this.props.loading}
-                           pagination={false}
+                           pagination={true}
+                           // pagination={false}
                         // pagination={{position: [this.state.bottom]}}
                            onRow={(record) => {
                                return {
@@ -129,25 +143,25 @@ export default class Content extends Component {
                             }
                            }
                     />
-                    <Pagination
-                        className='pagination'
-                        total={this.props.totalParentToChild}
-                        current={this.props.num}
-                        pageSize={this.props.size}
-                        onChange={(num, size) => {
-                            fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${num}&pageSize=${size}`)
-                                .then(response => response.json())
-                                .then(response => {
-                                    this.setState({
-                                        data: response.rows,
-                                    })
-                                    this.props.onChange(response.rows)
-                                    this.props.updatePageNum(num)
-                                    this.props.updatePageSize(size)
-                                })
-                             }
-                        }
-                    />
+                    {/*<Pagination*/}
+                    {/*    className='pagination'*/}
+                    {/*    total={this.props.totalParentToChild}*/}
+                    {/*    current={this.props.num}*/}
+                    {/*    pageSize={this.props.size}*/}
+                    {/*    onChange={(num, size) => {*/}
+                    {/*        fetch(`http://185.246.64.43:8080/input/rest/listByFilter?&${this.props.updatePlantsFilter}query=${this.props.value}&plant_codes=&${this.props.updateTasksFilter}date1=&date2=&pageNum=${num}&pageSize=${size}`)*/}
+                    {/*            .then(response => response.json())*/}
+                    {/*            .then(response => {*/}
+                    {/*                this.setState({*/}
+                    {/*                    data: response.rows,*/}
+                    {/*                })*/}
+                    {/*                this.props.onChange(response.rows)*/}
+                    {/*                this.props.updatePageNum(num)*/}
+                    {/*                this.props.updatePageSize(size)*/}
+                    {/*            })*/}
+                    {/*         }*/}
+                    {/*    }*/}
+                    {/*/>*/}
                 </div>
             </div>
         )

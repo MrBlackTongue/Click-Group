@@ -172,13 +172,7 @@ export default class TreeSidebar extends Component {
         return (
             <div className='sidebar'>
 
-                <Menu
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
-                    mode="inline"
-                    // theme="dark"
-                    inlineCollapsed={this.state.collapsed}
-                >
+
 
                     {/*<Menu.Itemkey="1"icon={<PieChartOutlined/>}>*/}
                     {/*Option1*/}
@@ -189,34 +183,57 @@ export default class TreeSidebar extends Component {
                     {/*<Menu.Itemkey="3"icon={<ContainerOutlined/>}>*/}
                     {/*Option3*/}
                     {/*</Menu.Item>*/}
-                    <SubMenu key="sub1" icon={<MailOutlined/>} title="Создать" className='submenu'>
-                        <Menu.Item className='menu-item'>
-                            <a target="_blank" rel="noopenernoreferrer"href="https://www.antgroup.com">
-                                ФНП
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className='menu-item'>
-                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
-                                ФНП для ОИАЭ
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className='menu-item'>
-                            <a target="_blank" rel="noopenernoreferrer" href="https://www.luohanacademy.com">
-                                Несоответствий для ОИАЭ
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className='menu-item'>
-                            <a target="_blank" rel="noopenernoreferrer" href="https://www.antgroup.com">
-                                Оценка влияния на безопасность
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item className='menu-item'>
-                            <a target="_blank" rel="noopenernoreferrer" href="https://www.aliyun.com">
-                                Мероприятия
-                            </a>
-                        </Menu.Item>
-                    </SubMenu>
-                </Menu>
+
+                <div className='create-btn'>
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                    >
+                        ФНП
+                    </Button>
+
+                    <br/>
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                    >
+                        ФНП для ОИАЭ
+                    </Button>
+
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                    >
+                        Несоответствий для ОИАЭ
+                    </Button>
+
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                    >
+                        Оценка влияния на безопасность
+                    </Button>
+
+                    <Button
+                        type="primary"
+                        className='button-ghost'
+                        ghost
+                        size='default'
+                    >
+                        Мероприятия
+                    </Button>
+
+                </div>
+
+
 
                 <div className='div-br'></div>
                 <Menu
@@ -268,7 +285,6 @@ export default class TreeSidebar extends Component {
                         </Menu.Item>
                     </Menu.Item>
                 </Menu>
-
 
 
                 {/*<div className='treeSidebar'>*/}
