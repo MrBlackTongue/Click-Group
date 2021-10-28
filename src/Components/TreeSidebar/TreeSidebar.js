@@ -188,7 +188,6 @@ export default class TreeSidebar extends Component {
                     <Button
                         type="primary"
                         className='button-ghost'
-                        ghost
                         size='default'
                     >
                         ФНП
@@ -198,7 +197,6 @@ export default class TreeSidebar extends Component {
                     <Button
                         type="primary"
                         className='button-ghost'
-                        ghost
                         size='default'
                     >
                         ФНП для ОИАЭ
@@ -207,7 +205,6 @@ export default class TreeSidebar extends Component {
                     <Button
                         type="primary"
                         className='button-ghost'
-                        ghost
                         size='default'
                     >
                         Несоответствий для ОИАЭ
@@ -216,7 +213,6 @@ export default class TreeSidebar extends Component {
                     <Button
                         type="primary"
                         className='button-ghost'
-                        ghost
                         size='default'
                     >
                         Оценка влияния на безопасность
@@ -225,7 +221,6 @@ export default class TreeSidebar extends Component {
                     <Button
                         type="primary"
                         className='button-ghost'
-                        ghost
                         size='default'
                     >
                         Мероприятия
