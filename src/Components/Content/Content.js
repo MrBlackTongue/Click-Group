@@ -111,7 +111,7 @@ export default class Content extends Component {
                             ghost
                             size='default'
                         >
-                            ФНП
+                            <PlusOutlined/>ФНП
                         </Button>
                     <Table className='table' bordered
                            columns={columns}
