@@ -29,9 +29,10 @@ html * {
 
 .button-ghost {
   position: relative;
-  left: 10%;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  /*left: 10%;*/
+  /*margin-top: 10px;*/
+  margin-bottom: 10px;
+  /*margin-bottom: 5px;*/
 }
 
 .div-br {
@@ -64,6 +65,7 @@ html * {
   width: 300px;
   min-height: 1000px;
   box-shadow: 10px -4px 5px -4px rgba(65,144,255, 0.2);
+  /*background-color: white;*/
 }
 
 .treeSidebar {
@@ -128,7 +130,7 @@ html * {
   margin: 10px 20px;
   width: 100%;
   background-color: white;
-  padding: 20px 20px;
+  /*padding: 20px 20px;*/
   border-radius: 4px;
 }
 
@@ -305,7 +307,7 @@ th {
 
 
 .home-context-div {
-  background-color: #f7f7f7;
+  /*background-color: #f7f7f7;*/
 }
 
 .create-btn {

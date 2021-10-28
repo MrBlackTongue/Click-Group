@@ -184,58 +184,58 @@ export default class TreeSidebar extends Component {
                     {/*Option3*/}
                     {/*</Menu.Item>*/}
 
-                <div className='create-btn'>
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                    >
-                        ФНП
-                    </Button>
+                {/*<div className='create-btn'>*/}
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*    >*/}
+                {/*        ФНП*/}
+                {/*    </Button>*/}
 
-                    <br/>
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                    >
-                        ФНП для ОИАЭ
-                    </Button>
+                {/*    <br/>*/}
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*    >*/}
+                {/*        ФНП для ОИАЭ*/}
+                {/*    </Button>*/}
 
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                    >
-                        Несоответствий для ОИАЭ
-                    </Button>
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*    >*/}
+                {/*        Несоответствий для ОИАЭ*/}
+                {/*    </Button>*/}
 
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                    >
-                        Оценка влияния на безопасность
-                    </Button>
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*    >*/}
+                {/*        Оценка влияния на безопасность*/}
+                {/*    </Button>*/}
 
-                    <Button
-                        type="primary"
-                        className='button-ghost'
-                        ghost
-                        size='default'
-                    >
-                        Мероприятия
-                    </Button>
+                {/*    <Button*/}
+                {/*        type="primary"*/}
+                {/*        className='button-ghost'*/}
+                {/*        ghost*/}
+                {/*        size='default'*/}
+                {/*    >*/}
+                {/*        Мероприятия*/}
+                {/*    </Button>*/}
 
-                </div>
+                {/*</div>*/}
 
 
 
-                <div className='div-br'></div>
+                {/*<div className='div-br'></div>*/}
                 <Menu
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}

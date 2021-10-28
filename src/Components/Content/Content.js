@@ -105,6 +105,14 @@ export default class Content extends Component {
                 {/*    </Button>*/}
                 {/*</div>*/}
                 <div>
+                        <Button
+                            type="primary"
+                            className='button-ghost'
+                            ghost
+                            size='default'
+                        >
+                            ФНП
+                        </Button>
                     <Table className='table' bordered
                            columns={columns}
                            dataSource={data}
